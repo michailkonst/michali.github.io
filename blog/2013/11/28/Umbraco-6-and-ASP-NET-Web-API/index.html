@@ -28,6 +28,25 @@
   <link rel="canonical" href="http://localhost:4000/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/">
   <link rel="alternate" type="application/rss+xml" title="Michali K" href="http://localhost:4000/feed.xml" />
   <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#237afc"
+      },
+      "button": {
+        "background": "#fff",
+        "text": "#237afc"
+      }
+    },
+    "content": {
+      "dismiss": "Okay"
+    }
+  })});
+  </script>
 </head>
 
 
@@ -49,6 +68,10 @@
       
         
       
+        
+      
+        
+        <a class="page-link" href="/privacy-policy/">Privacy Policy</a>
         
       
     </nav>
@@ -262,11 +285,21 @@
 
     <footer class="footer">
 <div class="wrapper">
-&copy; 2018 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+&copy; 2018 Michali K
 </div>
 </footer>
 
 <script src="/js/easybook.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117119957-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117119957-1');
+</script>
+
 
   </body>
 
