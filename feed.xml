@@ -4,18 +4,18 @@
     <title>Michali K</title>
     <description>Software Development
 </description>
-    <link>http://www.michalikons.com/</link>
-    <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 May 2018 00:02:49 +1000</pubDate>
-    <lastBuildDate>Tue, 08 May 2018 00:02:49 +1000</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 08 May 2018 13:34:48 +1000</pubDate>
+    <lastBuildDate>Tue, 08 May 2018 13:34:48 +1000</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
         <title>Jekyll blog posts in their own sub URL</title>
         <description>When rolling out a new blog, you can put all blog posts under their own sub URL.</description>
         <pubDate>Mon, 09 Apr 2018 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2018/04/09/Jekyll-blog-posts-structure/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2018/04/09/Jekyll-blog-posts-structure/</guid>
+        <link>http://localhost:4000/blog/2018/04/09/Jekyll-blog-posts-structure/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2018/04/09/Jekyll-blog-posts-structure/</guid>
         
         
         <category>Jekyll</category>
@@ -26,8 +26,8 @@
         <title>Parallel.Foreach with ordered output using arrays</title>
         <description>One of the problems I've recently had was to process a collection of data and return the outcome of each processing in another collection. To utilise the multiple and/or hyper threaded cores of the machine that executes the processing, I've used the Task Parallel Library.</description>
         <pubDate>Fri, 01 Aug 2014 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</guid>
+        <link>http://localhost:4000/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</guid>
         
         
         <category>Task Parallel Library</category>
@@ -40,8 +40,8 @@
 
 </description>
         <pubDate>Thu, 28 Nov 2013 20:00:13 +1100</pubDate>
-        <link>http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</guid>
+        <link>http://localhost:4000/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</guid>
         
         
         <category>clean code</category>
@@ -56,8 +56,8 @@
 
 </description>
         <pubDate>Thu, 28 Nov 2013 00:00:00 +1100</pubDate>
-        <link>http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/</guid>
+        <link>http://localhost:4000/blog/2013/11/28/nunit-test-method-code-snippet/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2013/11/28/nunit-test-method-code-snippet/</guid>
         
         
         <category>Automated Tests</category>
