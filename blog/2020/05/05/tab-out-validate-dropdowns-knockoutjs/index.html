@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Trigger validation of a dropdown box when tabbing over it in KnockoutJS | Michali K</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Trigger validation of a dropdown box when tabbing over it in KnockoutJS" />
+<meta name="author" content="Michali K" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="When tabbing over a dropdown box in a form, it’s tougher to trigger its validations than it is with empty text boxes. Here’s a trick on how to enable that." />
+<meta property="og:description" content="When tabbing over a dropdown box in a form, it’s tougher to trigger its validations than it is with empty text boxes. Here’s a trick on how to enable that." />
+<link rel="canonical" href="http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/" />
+<meta property="og:url" content="http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/" />
+<meta property="og:site_name" content="Michali K" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-05T08:00:00+10:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Trigger validation of a dropdown box when tabbing over it in KnockoutJS","url":"http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/","dateModified":"2020-05-05T08:00:00+10:00","datePublished":"2020-05-05T08:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/"},"author":{"@type":"Person","name":"Michali K"},"description":"When tabbing over a dropdown box in a form, it’s tougher to trigger its validations than it is with empty text boxes. Here’s a trick on how to enable that.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">
+  <link rel="alternate" type="application/rss+xml" title="Michali K" href="http://www.michalikons.com/feed.xml" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#237afc"
+      },
+      "button": {
+        "background": "#fff",
+        "text": "#237afc"
+      }
+    },
+    "content": {
+      "dismiss": "Okay"
+    }
+  })});
+  </script>
+  
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2865828466412302",
+        enable_page_level_ads: true
+      });
+    </script>
+  
+</head>
+
+
+  <body>
+
+    <header class="header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Michali K</a>
+    <nav class="site-nav">
+      
+        <a class="page-link" href="/blog/">Blog</a>
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </nav>
+  </div>
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="col-main">
+          <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</h1>
+    <p class="post-meta">May 5, 2020</p>
+  </header>
+
+  <article class="post-content">
+    <p>I had a problem to solve recently which was to change a form’s validation triggers in a front-end that uses KnockoutJS. When a user tabs through the required input elements of a form, the validation visuals of said elements get highlighted. That was not the case, however, with the dropdown boxes in the form as those didn’t highlight as invalid. The would still show the caption entry on the top (“Please select from the below”) which obviously is a prompt and that doesn’t meet the “required” criteria, but the validation would only trigger if a value was selected and then the caption entry on the top was selected again, which isn’t a usual user journey to start with.</p>
+
+<p>The invalid dropdown entries would still be caught upon form submission. However, a quick feedback would provide consistency in the UI instead of some fields being highlighted when passed on with the tab key and some others not being hightlighted. More importantly, it’s also an accessibility issue as screen readers will wait until the end instead of picking up the invalid field as soon as they do with the text boxes.</p>
+
+<p>Let’s look at an example. Here is a dropdown box whose markup and validation markers look like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">data-bind=</span><span class="s">"css: { 'field-error': stateValid }"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"lblState"</span> <span class="na">for=</span><span class="s">"selectState"</span> <span class="na">aria-required=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+        State/Territory
+        <span class="nt">&lt;abbr</span> <span class="na">class=</span><span class="s">"required-indicator"</span> <span class="na">title=</span><span class="s">"Required"</span><span class="nt">&gt;</span> *<span class="nt">&lt;/abbr&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;select</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">name=</span><span class="s">"expiry-month"</span> <span class="na">id=</span><span class="s">"selectState"</span> 
+            <span class="na">aria-describedby=</span><span class="s">"selectStateErr"</span> 
+            <span class="na">data-bind=</span><span class="s">"event: {blur: forceValidation.bind($data, state) }, value: state"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="na">selected</span><span class="nt">&gt;</span>-Select-<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"ACT"</span><span class="nt">&gt;</span>ACT<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"NSW"</span><span class="nt">&gt;</span>NSW<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"QLD"</span><span class="nt">&gt;</span>QLD<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"VIC"</span><span class="nt">&gt;</span>VIC<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"TAS"</span><span class="nt">&gt;</span>TAS<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"NT"</span><span class="nt">&gt;</span>NT<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"WA"</span><span class="nt">&gt;</span>WA<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"SA"</span><span class="nt">&gt;</span>SA<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/select&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"error"</span> <span class="na">aria-live=</span><span class="s">"polite"</span> <span class="na">aria-atomic=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"selectStateErr"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">data-bind=</span><span class="s">"if: stateValid"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon-error"</span><span class="nt">&gt;&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>State<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">data-bind=</span><span class="s">"validationMessage: state"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Validation rules for the dropdown:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">observable</span><span class="p">(</span><span class="dl">""</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="na">required</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">message</span><span class="p">:</span> <span class="dl">"</span><span class="s2">You must select a state or territory</span><span class="dl">"</span><span class="p">,</span>
+        <span class="p">}</span>
+     <span class="p">});</span>  
+</code></pre></div></div>
+
+<p>The view model property <code class="highlighter-rouge">state</code> is set up with an empty string value, <em>same as the placeholder entry’s value</em>. Were this not the case, the “required” validation of the dropdown would kick in immediately. This is because while the observable is initialized with another value, when Knockout evaluates the value binding it sets the <code class="highlighter-rouge">state</code> field to the currently selected empty string value. Because undefined != “”, validation fails as knockout thinks that the property has been modified.</p>
+
+<p>Then create a property with an observable that will trigger validation visuals in the DOM:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">self</span><span class="p">.</span><span class="nx">stateValid</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nx">validateField</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="nx">state</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Where <code class="highlighter-rouge">validateField</code> is a generic validation function you would use with text fields too:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">validateField</span><span class="p">(</span><span class="nx">field</span><span class="p">){</span>
+    <span class="k">return</span> <span class="o">!</span><span class="nx">field</span><span class="p">.</span><span class="nx">isValid</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">field</span><span class="p">.</span><span class="nx">isModified</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>An additional step is required to trigger the validations of a dropdown when focusing and unfocusing from it.</p>
+
+<p>The <code class="highlighter-rouge">blur</code> event is fired when a user clicks out or tabs out from an input element. We need to let knockout know that it’s a event it should watch out for:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">valueUpdate</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">blur</span><span class="dl">'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Edit the <code class="highlighter-rouge">selectState</code> opening dropdown tag as follows:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;select</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">name=</span><span class="s">"expiry-month"</span> <span class="na">id=</span><span class="s">"selectState"</span> 
+            <span class="na">aria-describedby=</span><span class="s">"selectStateErr"</span> 
+            <span class="na">data-bind=</span><span class="s">"event:{blur: forceValidation.bind($data, state) }, value: state"</span><span class="nt">&gt;</span>
+
+</code></pre></div></div>
+<p>And add the following function:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">self</span><span class="p">.</span><span class="nx">forceValidation</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">field</span><span class="p">){</span>
+    <span class="nx">field</span><span class="p">.</span><span class="nx">valueHasMutated</span><span class="p">();</span> 
+<span class="p">};</span>    
+</code></pre></div></div>
+
+<p>Now when the dropdown loses focus its bound observable will have its <code class="highlighter-rouge">valueHasMutated</code> function fired. <code class="highlighter-rouge">valueHasMutated</code> normally notifies the observable’s subscribers that the value has changed but manually invoking it will have the same effect.</p>
+
+<p>With that in place, you have a dropdown whose validation is also triggered by it losing focus.</p>
+
+  </article>
+  
+  
+
+<div class="post-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'michalikons'; // required: replace example with your forum shortname
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+
+
+
+
+</div>
+
+        </div>
+        <div class="col-second">
+          <div class="col-box col-box-author">
+  <img class="avatar" src="/assets/profile.jpg" alt="Michali K">
+  <div class="col-box-title name">Michali K</div>
+  <p>A software engineer based in Sydney</p>
+  <p class="contact">
+    
+    <a href="https://github.com/michali">GitHub</a>
+    
+    
+    <a href="https://twitter.com/michalikons">Twitter</a>
+    
+    
+    <a href="mailto:michali@michalikons.com">Email</a>
+    
+  </p>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title">Newest Posts</div>
+  <ul class="post-list">
+    
+      <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
+    
+      <li><a class="post-link" href="/blog/2018/04/09/Jekyll-blog-posts-structure/">Jekyll blog posts in their own sub URL</a></li>
+    
+      <li><a class="post-link" href="/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/">Parallel.Foreach with ordered output using arrays</a></li>
+    
+  </ul>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title"><a href="/blog/archive/">Archive</a></div>
+</div>
+
+<div class="col-box post-toc hide">
+  <div class="col-box-title">TOC</div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+<div class="wrapper">
+&copy; 2020 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+</div>
+</footer>
+
+<script src="/js/easybook.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117119957-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117119957-1');
+</script>
+
+
+  </body>
+
+</html>

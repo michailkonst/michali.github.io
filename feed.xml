@@ -6,9 +6,54 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 May 2018 21:36:22 +1000</pubDate>
-    <lastBuildDate>Tue, 08 May 2018 21:36:22 +1000</lastBuildDate>
-    <generator>Jekyll v3.3.1</generator>
+    <pubDate>Sun, 17 May 2020 17:01:27 +1000</pubDate>
+    <lastBuildDate>Sun, 17 May 2020 17:01:27 +1000</lastBuildDate>
+    <generator>Jekyll v4.0.1</generator>
+    
+      <item>
+        <title>Trigger validation of a dropdown box when tabbing over it in KnockoutJS</title>
+        <description>When tabbing over a dropdown box in a form, it's tougher to trigger its validations than it is with empty text boxes. Here's a trick on how to enable that.</description>
+        <pubDate>Tue, 05 May 2020 08:00:00 +1000</pubDate>
+        <link>http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/</guid>
+        
+        <category>KnockoutJS</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>The Capital Controls Kata</title>
+        <description>A code kata to explore adaptation in changing system requirements.</description>
+        <pubDate>Sat, 02 May 2020 00:00:00 +1000</pubDate>
+        <link>http://www.michalikons.com/blog/2020/05/02/capital-controls-programming-kata/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2020/05/02/capital-controls-programming-kata/</guid>
+        
+        <category>Kata</category>
+        
+        
+        <category>Kata</category>
+        
+      </item>
+    
+      <item>
+        <title>Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</title>
+        <description>&lt;p&gt;Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. &lt;/p&gt;
+</description>
+        <pubDate>Thu, 30 Apr 2020 00:00:00 +1000</pubDate>
+        <link>http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/</guid>
+        
+        <category>HTTPS</category>
+        
+        <category>Github</category>
+        
+        
+        <category>Github</category>
+        
+        <category>HTTPS</category>
+        
+      </item>
     
       <item>
         <title>Jekyll blog posts in their own sub URL</title>
@@ -37,7 +82,6 @@
       <item>
         <title>Umbraco 6 and ASP.NET Web API</title>
         <description>&lt;p&gt;Umbraco 6.1.0 has introduced support for the ASP .NET Web API. We’ll see what kind of support is currently offered, its shortcomings and how we can improve it.&lt;/p&gt;
-
 </description>
         <pubDate>Thu, 28 Nov 2013 20:00:13 +1100</pubDate>
         <link>http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</link>
@@ -53,7 +97,6 @@
       <item>
         <title>NUnit Test method code snippet</title>
         <description>&lt;p&gt;This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option.&lt;/p&gt;
-
 </description>
         <pubDate>Thu, 28 Nov 2013 00:00:00 +1100</pubDate>
         <link>http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/</link>

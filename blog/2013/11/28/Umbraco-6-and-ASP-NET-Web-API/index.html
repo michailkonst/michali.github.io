@@ -5,9 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Umbraco 6 and ASP.NET Web API - Michali K</title>
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Umbraco 6 and ASP.NET Web API | Michali K</title>
+<meta name="generator" content="Jekyll v4.0.1" />
 <meta property="og:title" content="Umbraco 6 and ASP.NET Web API" />
+<meta name="author" content="Michali K" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="Umbraco 6.1.0 has introduced support for the ASP .NET Web API. We’ll see what kind of support is currently offered, its shortcomings and how we can improve it." />
 <meta property="og:description" content="Umbraco 6.1.0 has introduced support for the ASP .NET Web API. We’ll see what kind of support is currently offered, its shortcomings and how we can improve it." />
 <link rel="canonical" href="http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/" />
@@ -16,12 +19,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-11-28T20:00:13+11:00" />
 <script type="application/ld+json">
-{"@context": "http://schema.org",
-"@type": "BlogPosting",
-"headline": "Umbraco 6 and ASP.NET Web API",
-"datePublished": "2013-11-28T20:00:13+11:00",
-"description": "Umbraco 6.1.0 has introduced support for the ASP .NET Web API. We’ll see what kind of support is currently offered, its shortcomings and how we can improve it.",
-"url": "http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/"}</script>
+{"@type":"BlogPosting","headline":"Umbraco 6 and ASP.NET Web API","url":"http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/","dateModified":"2013-11-28T20:00:13+11:00","datePublished":"2013-11-28T20:00:13+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/"},"author":{"@type":"Person","name":"Michali K"},"description":"Umbraco 6.1.0 has introduced support for the ASP .NET Web API. We’ll see what kind of support is currently offered, its shortcomings and how we can improve it.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/css/main.css">
@@ -83,6 +81,8 @@
       
         
       
+        
+      
     </nav>
   </div>
 </header>
@@ -105,32 +105,29 @@
 
 <p>By deriving from the base controller you get the following properties:</p>
 
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">ApplicationContext</span> <span class="n">ApplicationContext</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ApplicationContext</span> <span class="n">ApplicationContext</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
 <span class="n">ServiceContext</span> <span class="n">Services</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
 <span class="n">DatabaseContext</span> <span class="n">DatabaseContext</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
 <span class="n">UmbracoHelper</span> <span class="n">Umbraco</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
 <span class="n">UmbracoContext</span> <span class="n">UmbracoContext</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>If you had an Event document type and wanted to get an event by ID, you could write a controller like so:</p>
 
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">EventsApiController</span> <span class="p">:</span> <span class="n">UmbracoApiController</span>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">EventsApiController</span> <span class="p">:</span> <span class="n">UmbracoApiController</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="n">Event</span> <span class="nf">Get</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="kt">dynamic</span> <span class="n">eventPublishedContent</span> <span class="p">=</span> <span class="n">Umbraco</span><span class="p">.</span><span class="nf">Content</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
-        <span class="c1">// map the eventPublishedContent to an object of type Event here
-</span>        <span class="k">return</span> <span class="n">@event</span><span class="p">;</span>
+        <span class="c1">// map the eventPublishedContent to an object of type Event here</span>
+        <span class="k">return</span> <span class="n">@event</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">UmbracoHelper.Content(int id)</code> brings back a dynamic object on which one can call properties of the document with that id. For example, speaking of Events, if you had a document type in your Umbraco site called Event and this had a text property called Venue, you would get its value by</p>
 
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">eventPublishedContent</span><span class="p">.</span><span class="n">Venue</span>
-</code></pre>
-</div>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">eventPublishedContent</span><span class="p">.</span><span class="n">Venue</span>
+</code></pre></div></div>
 
 <p>Or you can cast the dynamic to <code class="highlighter-rouge">IPublishedContent</code>.</p>
 
@@ -138,51 +135,50 @@
 
 <p>There is a naming convention and that is the API controllers must end with ApiController. For example, a controller that would operate on Conference domain objects would be called ConferencesApiController.</p>
 
-<p>To get an event by routing a request to the above EventsApiController we hit this URL:
-<code class="highlighter-rouge">~/Umbraco/Api/EventsApi/Get/1</code></p>
+<p>To get an event by routing a request to the above EventsApiController we hit this URL:</p>
+<pre><code class="language-~/Umbraco/Api/EventsApi/Get/1```">
+If you had a method to get all events:
 
-<p>If you had a method to get all events:</p>
+```public IEnumerable GetAll()```
 
-<p><code class="highlighter-rouge">public IEnumerable GetAll()</code></p>
+you would call it with this URL:
+~/Umbraco/Api/EventsApi/GetAll
 
-<p>you would call it with this URL:
-~/Umbraco/Api/EventsApi/GetAll</p>
+In the [Richardson Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html), this would be... level 0 and 2 without being level 1. We're getting a resource or resources using a URL and HTTP verbs but the action method of the API controllers has also got to be in the URL. Action methods for POST, PUT and DELETE. In addition, the name of the resource is obfuscated by the Api suffix. We want the URLs that would access a level 2 REST API to be as follows:
 
-<p>In the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a>, this would be… level 0 and 2 without being level 1. We’re getting a resource or resources using a URL and HTTP verbs but the action method of the API controllers has also got to be in the URL. Action methods for POST, PUT and DELETE. In addition, the name of the resource is obfuscated by the Api suffix. We want the URLs that would access a level 2 REST API to be as follows:</p>
+```~/Umbraco/Api/Events/1``` to get the Event document with ID 1
+```~/Umbraco/Api/Events``` to get all Event documents
 
-<p><code class="highlighter-rouge">~/Umbraco/Api/Events/1</code> to get the Event document with ID 1
-<code class="highlighter-rouge">~/Umbraco/Api/Events</code> to get all Event documents</p>
+## Creating a (Level 2) REST API with Umbraco support
+What's happening here is that because Umbraco uses its own Global.asax, all default MVC routes are overriden with its own. We need to put the Web API default route back into the application so the above URIs get us the resource we want.
 
-<h2 id="creating-a-level-2-rest-api-with-umbraco-support">Creating a (Level 2) REST API with Umbraco support</h2>
-<p>What’s happening here is that because Umbraco uses its own Global.asax, all default MVC routes are overriden with its own. We need to put the Web API default route back into the application so the above URIs get us the resource we want.</p>
+You can do this in a Global.asax that inherits from the default Umbraco one. You may already have such a file in your application with all the global logic in it. In this case it's a matter of reintroducing the route registration of the ```WebApiConfig``` static class found in all Web API projects on Global's ```Application_Start()``` and you're good to go.
 
-<p>You can do this in a Global.asax that inherits from the default Umbraco one. You may already have such a file in your application with all the global logic in it. In this case it’s a matter of reintroducing the route registration of the <code class="highlighter-rouge">WebApiConfig</code> static class found in all Web API projects on Global’s <code class="highlighter-rouge">Application_Start()</code> and you’re good to go.</p>
+The other way is to create an Umbraco application event handler and register any custom routes there. For the Web API default routes this could be like the below:
 
-<p>The other way is to create an Umbraco application event handler and register any custom routes there. For the Web API default routes this could be like the below:</p>
+```csharp
+public class WebApiRouteRegistrarHandler : IApplicationEventHandler
+{
+    public void OnApplicationInitialized(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
+    {
+    }
 
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">WebApiRouteRegistrarHandler</span> <span class="p">:</span> <span class="n">IApplicationEventHandler</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">OnApplicationInitialized</span><span class="p">(</span><span class="n">UmbracoApplicationBase</span> <span class="n">umbracoApplication</span><span class="p">,</span> <span class="n">ApplicationContext</span> <span class="n">applicationContext</span><span class="p">)</span>
-    <span class="p">{</span>
-    <span class="p">}</span>
+    public void OnApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
+    {
+        WebApiConfig.Register(GlobalConfiguration.Configuration);
+    }
 
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">OnApplicationStarting</span><span class="p">(</span><span class="n">UmbracoApplicationBase</span> <span class="n">umbracoApplication</span><span class="p">,</span> <span class="n">ApplicationContext</span> <span class="n">applicationContext</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">WebApiConfig</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="n">GlobalConfiguration</span><span class="p">.</span><span class="n">Configuration</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">OnApplicationStarted</span><span class="p">(</span><span class="n">UmbracoApplicationBase</span> <span class="n">umbracoApplication</span><span class="p">,</span> <span class="n">ApplicationContext</span> <span class="n">applicationContext</span><span class="p">)</span>
-    <span class="p">{</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
+    {
+    }
+}
 </code></pre>
-</div>
 
 <p>Umbraco picks those handlers automatically so you don’t need to register it anywhere.</p>
 
 <p>Now you can write a Web API Controller for your Event documents</p>
 
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">EventsController</span> <span class="p">:</span> <span class="n">ApiController</span>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">EventsController</span> <span class="p">:</span> <span class="n">ApiController</span>
 <span class="p">{</span>
     <span class="k">private</span> <span class="k">readonly</span> <span class="n">IEventsService</span> <span class="n">_eventsService</span><span class="p">;</span>
 
@@ -201,8 +197,7 @@
         <span class="k">return</span> <span class="n">_eventsService</span><span class="p">.</span><span class="nf">GetAllEvents</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You can also change or register a new route if you want the API URIs to begin with <code class="highlighter-rouge">Umbraco</code>.</p>
 
 <p>Also instead of inheriting from <code class="highlighter-rouge">UmbracoApiController</code> we’re inheriting from Microsoft’s <code class="highlighter-rouge">ApiController</code>. This results in a few more lines of code but you gain testability as the controller does not expose properties that you (correctly in my opinion) can’t set, therefore can’t test with. By only exposing what you need you have a controller that doesn’t do too much and doesn’t depend on properties it doesn’t use.</p>
@@ -251,13 +246,15 @@
   <div class="col-box-title">Newest Posts</div>
   <ul class="post-list">
     
+      <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
+    
       <li><a class="post-link" href="/blog/2018/04/09/Jekyll-blog-posts-structure/">Jekyll blog posts in their own sub URL</a></li>
     
       <li><a class="post-link" href="/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/">Parallel.Foreach with ordered output using arrays</a></li>
-    
-      <li><a class="post-link" href="/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/">Umbraco 6 and ASP.NET Web API</a></li>
-    
-      <li><a class="post-link" href="/blog/2013/11/28/nunit-test-method-code-snippet/">NUnit Test method code snippet</a></li>
     
   </ul>
 </div>
@@ -275,7 +272,7 @@
 
     <footer class="footer">
 <div class="wrapper">
-&copy; 2018 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+&copy; 2020 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
 </div>
 </footer>
 

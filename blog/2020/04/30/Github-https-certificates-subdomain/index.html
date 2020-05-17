@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats). | Michali K</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats)." />
+<meta name="author" content="Michali K" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. " />
+<meta property="og:description" content="Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. " />
+<link rel="canonical" href="http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/" />
+<meta property="og:url" content="http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/" />
+<meta property="og:site_name" content="Michali K" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-30T00:00:00+10:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).","url":"http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/","dateModified":"2020-04-30T00:00:00+10:00","datePublished":"2020-04-30T00:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/"},"author":{"@type":"Person","name":"Michali K"},"description":"Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. ","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/">
+  <link rel="alternate" type="application/rss+xml" title="Michali K" href="http://www.michalikons.com/feed.xml" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#237afc"
+      },
+      "button": {
+        "background": "#fff",
+        "text": "#237afc"
+      }
+    },
+    "content": {
+      "dismiss": "Okay"
+    }
+  })});
+  </script>
+  
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2865828466412302",
+        enable_page_level_ads: true
+      });
+    </script>
+  
+</head>
+
+
+  <body>
+
+    <header class="header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Michali K</a>
+    <nav class="site-nav">
+      
+        <a class="page-link" href="/blog/">Blog</a>
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </nav>
+  </div>
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="col-main">
+          <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</h1>
+    <p class="post-meta">Apr 30, 2020</p>
+  </header>
+
+  <article class="post-content">
+    <p>Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. </p>
+
+<p>This would work for most scenarios. However, because the certificates on Cloudflare’s free plan are shared, that raises a matter of perception. Do I want to be seen sharing the same security certificate with virtual <a href="https://www.troyhunt.com/should-you-care-about-the-quality-of-your-neighbours-on-a-san-certificate/">neighbours</a> you don’t want to be seen with? Sure, the certificates are managed by Cloudflare and if you’re looking at the Subject Alternative Name entries in a cert, that means you have a good idea how shared certificates work. Regardless, for the off chance that some may pass moral judgement on a site they’re visiting based on the quality of said site’s cert neighbours, many of us would like our own certificate, dedicated to a domain.</p>
+
+<p>Github support pages have detailed instructions on how to obtain a dedicated certificate but I’d like to bring up a particular case.</p>
+
+<p>Suppose you own a domain called example.com and a site on example.github.io and that you want to point both www.example.com and example.com to the Github pages site using HTTPS. If you hosted your site yourself and could manage your own certificates, you can have both example.com and www.example.com under a wildcard certificate with the apex example.com domain added as a Subject Alternative Name. Github Pages, however, doesn’t work that way. When you enable SSL on your site’s settings for a custom domain, a certificate is generated only for that custom domain exactly as it’s specified in the settings and it won’t cover variations of that domain.</p>
+
+<p>However, you can still have your connections to your apex domain redirect to a subdomain specified in Github pages. To set up your site on your Github Pages repo on a subdomain, go your Github page repo’s settings and add the fully qualified domain under “Custom Domain”.</p>
+
+<p>Then go to your domain registrar’s DNS management. You need a <code class="highlighter-rouge">CNAME</code> entry for the subdomain to point to your <code class="highlighter-rouge">[name].github.io</code> domain. Then for the apex domain, create four A records that point to the four IP addresses for Github pages:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+</code></pre></div></div>
+<p>Alternatively, you can create an <code class="highlighter-rouge">ALIAS</code> or <code class="highlighter-rouge">ANAME</code> to your <code class="highlighter-rouge">[name].github.io</code> domain.</p>
+
+<p>Refer to your domain registrar’s documentation on how to do this.</p>
+
+<p>And this takes us to the meat of this post. Having configured the entries above, typing the apex domain’s address in your browser’s address bar will redirect the browser with a 301 Moved Permanently status code to the Github Pages custom subdomain. Github pages will automatically handle this.</p>
+
+<p>Caveats:
+As mentioned, Github will generate a certificate only for the domain explicitly specified in the repo’s settings. You’ll get a warning if you try to connect to <code class="highlighter-rouge">https://example.com</code>. So, what happens when go to <code class="highlighter-rouge">example.com</code> is that you connect to Github Pages unsecurely and then Github Pages redirects the browser to the <code class="highlighter-rouge">www</code> domain. The initial connection before the redirect uses HTTPand thus it’s vulnerable to man-in-the-middle attacks.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">HSTS</a> is not currently supported although Github is aware that there is a growing interest in it.</p>
+
+<p>I guess you can’t complain, really. It’s all free, after all, save the price of the domain.</p>
+
+<p><strong>Update</strong>: Latest Chrome will, in fact, skip an unsecure connection to the unsecure <code class="highlighter-rouge">example.com</code> and will connect to the HTTPS <code class="highlighter-rouge">www.example.com</code> specified in the Github Pages project.</p>
+
+  </article>
+  
+  
+
+<div class="post-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'michalikons'; // required: replace example with your forum shortname
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+
+
+
+
+</div>
+
+        </div>
+        <div class="col-second">
+          <div class="col-box col-box-author">
+  <img class="avatar" src="/assets/profile.jpg" alt="Michali K">
+  <div class="col-box-title name">Michali K</div>
+  <p>A software engineer based in Sydney</p>
+  <p class="contact">
+    
+    <a href="https://github.com/michali">GitHub</a>
+    
+    
+    <a href="https://twitter.com/michalikons">Twitter</a>
+    
+    
+    <a href="mailto:michali@michalikons.com">Email</a>
+    
+  </p>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title">Newest Posts</div>
+  <ul class="post-list">
+    
+      <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
+    
+      <li><a class="post-link" href="/blog/2018/04/09/Jekyll-blog-posts-structure/">Jekyll blog posts in their own sub URL</a></li>
+    
+      <li><a class="post-link" href="/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/">Parallel.Foreach with ordered output using arrays</a></li>
+    
+  </ul>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title"><a href="/blog/archive/">Archive</a></div>
+</div>
+
+<div class="col-box post-toc hide">
+  <div class="col-box-title">TOC</div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+<div class="wrapper">
+&copy; 2020 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+</div>
+</footer>
+
+<script src="/js/easybook.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117119957-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117119957-1');
+</script>
+
+
+  </body>
+
+</html>

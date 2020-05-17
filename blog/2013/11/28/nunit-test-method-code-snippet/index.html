@@ -5,9 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>NUnit Test method code snippet - Michali K</title>
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>NUnit Test method code snippet | Michali K</title>
+<meta name="generator" content="Jekyll v4.0.1" />
 <meta property="og:title" content="NUnit Test method code snippet" />
+<meta name="author" content="Michali K" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option." />
 <meta property="og:description" content="This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option." />
 <link rel="canonical" href="http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/" />
@@ -16,12 +19,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-11-28T00:00:00+11:00" />
 <script type="application/ld+json">
-{"@context": "http://schema.org",
-"@type": "BlogPosting",
-"headline": "NUnit Test method code snippet",
-"datePublished": "2013-11-28T00:00:00+11:00",
-"description": "This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option.",
-"url": "http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/"}</script>
+{"@type":"BlogPosting","headline":"NUnit Test method code snippet","url":"http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/","dateModified":"2013-11-28T00:00:00+11:00","datePublished":"2013-11-28T00:00:00+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/"},"author":{"@type":"Person","name":"Michali K"},"description":"This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/css/main.css">
@@ -83,6 +81,8 @@
       
         
       
+        
+      
     </nav>
   </div>
 </header>
@@ -100,7 +100,7 @@
   <article class="post-content">
     <p>This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option.</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="nt">&lt;CodeSnippets</span> <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/VisualStudio/2008/CodeSnippet"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;CodeSnippet</span> <span class="na">Format=</span><span class="s">"1.0.0"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;Header&gt;</span>
@@ -138,18 +138,16 @@
     <span class="nt">&lt;/Snippet&gt;</span>
   <span class="nt">&lt;/CodeSnippet&gt;</span>
 <span class="nt">&lt;/CodeSnippets&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can change this according to your wants/needs but this snippet will produce the following once you call it with the <code>test</code> shortcut:</p>
 
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="na">[Test]</span>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">Test</span><span class="p">]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">UnitOfWork_WhenAction_ExpectedBehaviour</span><span class="p">()</span>
 <span class="p">{</span>
-   <span class="c1">//cursor will terminate here
-</span><span class="p">}</span>
-</code></pre>
-</div>
+   <span class="c1">//cursor will terminate here</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>UnitOfWork, Action and ExpectedBehaviour are the default text that replaces three tokens in the snippet body. The three tokens are bordered by dollar signs and will become highlighted and editable once the snippet is inserted.</p>
 
@@ -157,7 +155,7 @@
 
 <p>So you define the placeholder tokens in the Declarations part of the snippet and again you use them in the snippet body. Resharper has condensed this into just a snippet body with just the default text.</p>
 
-<p>Many thanks to <a href="href=&quot;http://osherove.com&quot;">Roy Osherove</a> for the Resharper test Template idea which he’s mentioned in some of his videos.</p>
+<p>Many thanks to <a href="https://osherove.com">Roy Osherove</a> for the Resharper test Template idea which he’s mentioned in some of his videos.</p>
 
 <p><strong>Edit:</strong> This only took eight months. Removed some newlines in the snippet and added an access modifier.</p>
 
@@ -205,13 +203,15 @@
   <div class="col-box-title">Newest Posts</div>
   <ul class="post-list">
     
+      <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
+    
       <li><a class="post-link" href="/blog/2018/04/09/Jekyll-blog-posts-structure/">Jekyll blog posts in their own sub URL</a></li>
     
       <li><a class="post-link" href="/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/">Parallel.Foreach with ordered output using arrays</a></li>
-    
-      <li><a class="post-link" href="/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/">Umbraco 6 and ASP.NET Web API</a></li>
-    
-      <li><a class="post-link" href="/blog/2013/11/28/nunit-test-method-code-snippet/">NUnit Test method code snippet</a></li>
     
   </ul>
 </div>
@@ -229,7 +229,7 @@
 
     <footer class="footer">
 <div class="wrapper">
-&copy; 2018 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+&copy; 2020 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
 </div>
 </footer>
 
