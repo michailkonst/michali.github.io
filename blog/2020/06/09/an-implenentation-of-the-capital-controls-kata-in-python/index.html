@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>An implementation of the Capital Controls kata in Python | Michali K</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="An implementation of the Capital Controls kata in Python" />
 <meta name="author" content="Michali K" />
 <meta property="og:locale" content="en_US" />
@@ -18,8 +18,10 @@
 <meta property="og:site_name" content="Michali K" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-09T08:00:00+10:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="An implementation of the Capital Controls kata in Python" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://www.michalikons.com/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/","headline":"An implementation of the Capital Controls kata in Python","dateModified":"2020-06-09T08:00:00+10:00","datePublished":"2020-06-09T08:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/"},"author":{"@type":"Person","name":"Michali K"},"description":"A walkthrough of the Capital Controls Kata in Python. Train of thought and a retrospective.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michali K"},"dateModified":"2020-06-09T08:00:00+10:00","datePublished":"2020-06-09T08:00:00+10:00","description":"A walkthrough of the Capital Controls Kata in Python. Train of thought and a retrospective.","headline":"An implementation of the Capital Controls kata in Python","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/"},"url":"http://www.michalikons.com/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/css/main.css">
@@ -158,7 +160,7 @@
         <span class="bp">self</span><span class="p">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
 </code></pre></div></div>
 
-<p>This was the third simplest thing that would make the test pass. Granted, you could have simply have the balance return a constant int of 100, triangulate with more test cases and arrive at the above code and that is, in fact, the approach I took in subsequent tests. An in-between approach would be to just assign the balance to the amount in the <code class="highlighter-rouge">_deposit</code> method. It’s easy to get carried away and jump to the solution if you know what to implement. The point here is to not get too far without tests preceding your implementation and I tried to make myself cognizant of that during the process.</p>
+<p>This was the third simplest thing that would make the test pass. Granted, you could have simply have the balance return a constant int of 100, triangulate with more test cases and arrive at the above code and that is, in fact, the approach I took in subsequent tests. An in-between approach would be to just assign the balance to the amount in the <code class="language-plaintext highlighter-rouge">_deposit</code> method. It’s easy to get carried away and jump to the solution if you know what to implement. The point here is to not get too far without tests preceding your implementation and I tried to make myself cognizant of that during the process.</p>
 
 <h3 id="withdrawal">Withdrawal</h3>
 <p>Withdrawal came next:</p>
@@ -172,22 +174,22 @@
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">balance</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Bank</code> class:</p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code> class:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">account</span><span class="p">.</span><span class="n">_withdraw</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> 
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Account</code> class:</p>
+<p><code class="language-plaintext highlighter-rouge">Account</code> class:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="bp">self</span><span class="p">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span>
 </code></pre></div></div>
 
-<p>I went slowly, but not that slowly. Instead of returning a constant from the <code class="highlighter-rouge">_withdraw</code> method, I subtracted the amount. Again, I could have taken it a step back and triangulated with more test cases.</p>
+<p>I went slowly, but not that slowly. Instead of returning a constant from the <code class="language-plaintext highlighter-rouge">_withdraw</code> method, I subtracted the amount. Again, I could have taken it a step back and triangulated with more test cases.</p>
 
-<p>Account methods <code class="highlighter-rouge">_deposit</code> and <code class="highlighter-rouge">_withdraw</code> are marked internal (with the leading underscore) as these should only be accessed from the same library.</p>
+<p>Account methods <code class="language-plaintext highlighter-rouge">_deposit</code> and <code class="language-plaintext highlighter-rouge">_withdraw</code> are marked internal (with the leading underscore) as these should only be accessed from the same library.</p>
 
-<p>One could argue that the <code class="highlighter-rouge">Bank</code> class may be starting to suffer from <a href="https://refactoring.guru/smells/feature-envy">feature envy</a>. At the moment it does nothing of its own but uses methods from the <code class="highlighter-rouge">Account</code> class. However, there is a strong argument to be made about class responsibilities and encapsulation - the user only interacts through their account via the bank, never directly through the account. The bank is, if you like, the gatekeeper between the ustomer and the account. If it turned out at the end of the implementation that the <code class="highlighter-rouge">Bank</code> class is redundant, the code would be refactored so <code class="highlighter-rouge">Bank</code> could be removed. You could also start from the bottom up and not have a <code class="highlighter-rouge">Bank</code> class in the first place until you need it. Remember, this is “Iteration 0” of the problem where we do not have a concept of future requirements where restrictions on capital could be asked of the development team.</p>
+<p>One could argue that the <code class="language-plaintext highlighter-rouge">Bank</code> class may be starting to suffer from <a href="https://refactoring.guru/smells/feature-envy">feature envy</a>. At the moment it does nothing of its own but uses methods from the <code class="language-plaintext highlighter-rouge">Account</code> class. However, there is a strong argument to be made about class responsibilities and encapsulation - the user only interacts through their account via the bank, never directly through the account. The bank is, if you like, the gatekeeper between the ustomer and the account. If it turned out at the end of the implementation that the <code class="language-plaintext highlighter-rouge">Bank</code> class is redundant, the code would be refactored so <code class="language-plaintext highlighter-rouge">Bank</code> could be removed. You could also start from the bottom up and not have a <code class="language-plaintext highlighter-rouge">Bank</code> class in the first place until you need it. Remember, this is “Iteration 0” of the problem where we do not have a concept of future requirements where restrictions on capital could be asked of the development team.</p>
 
 <p>Withdrawing an overdraft will result in a negative balance. Let’s fix that.</p>
 
@@ -223,7 +225,7 @@
 
 </code></pre></div></div>
 
-<p>We should also communicate the fact that a withdrawal operation (at first) may have failed due to insufficient funds. For that to happen, the <code class="highlighter-rouge">_withdraw</code> method can return an enum. I find this more intuitive than a boolean, even if we later on end up not expanding the scenarios for which a withdrawal may not happen.</p>
+<p>We should also communicate the fact that a withdrawal operation (at first) may have failed due to insufficient funds. For that to happen, the <code class="language-plaintext highlighter-rouge">_withdraw</code> method can return an enum. I find this more intuitive than a boolean, even if we later on end up not expanding the scenarios for which a withdrawal may not happen.</p>
 
 <p>Note that this time, in contrast with prevous examples, we are using parameterised tests to triangulate in order to arrive at the final algorithm in our production code.</p>
 
@@ -243,7 +245,7 @@
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>In the <code class="highlighter-rouge">Account</code> class:</p>
+<p>In the <code class="language-plaintext highlighter-rouge">Account</code> class:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__balance</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">InsufficientFunds</span>
@@ -258,13 +260,13 @@
     <span class="n">InsufficientFunds</span> <span class="o">=</span> <span class="mi">2</span>
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">Bank</code> class doesn’t change.</p>
+<p>The <code class="language-plaintext highlighter-rouge">Bank</code> class doesn’t change.</p>
 
 <p>So far, so good, but our basic functionality is very basic; there really needs to be a concept of a record that a transaction has taken place with every successful deposit, withdrawal and transfer.</p>
 
 <h3 id="transaction">Transaction</h3>
 
-<p>A transaction will have to be created with each deposit. That transaction should hold the date and time that it took place. The <code class="highlighter-rouge">Account</code> class should have a concept of transactions. Additionally, it seems wrong that an account can be initialised with a balance out of nowhere; every amount that is in the account should come in with a record of a transaction having taken place.</p>
+<p>A transaction will have to be created with each deposit. That transaction should hold the date and time that it took place. The <code class="language-plaintext highlighter-rouge">Account</code> class should have a concept of transactions. Additionally, it seems wrong that an account can be initialised with a balance out of nowhere; every amount that is in the account should come in with a record of a transaction having taken place.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">parameterized</span><span class="p">.</span><span class="n">expand</span><span class="p">([</span>
        <span class="p">(</span><span class="mi">100</span><span class="p">,),</span>
@@ -414,9 +416,9 @@
 <p>Any potential for refactoring? Sure there is.</p>
 
 <ul>
-  <li>Passing the date/time onto a transaction shouldn’t be a responsibility of the Account class, in my opinion, but that of the Bank class. The Bank is the “driver” behind these operations, the account is a “receiver”. This is also shown by the way the tests are structured. We ever test the <code class="highlighter-rouge">Account</code> class directly, we test it through the <code class="highlighter-rouge">Bank</code> class, which is the interface between the user and their accounts.</li>
-  <li>The <code class="highlighter-rouge">Transactions</code> can (and should) be encapsulated into a private member with a getter.</li>
-  <li>Same for the <code class="highlighter-rouge">Transaction</code> class’s members.</li>
+  <li>Passing the date/time onto a transaction shouldn’t be a responsibility of the Account class, in my opinion, but that of the Bank class. The Bank is the “driver” behind these operations, the account is a “receiver”. This is also shown by the way the tests are structured. We ever test the <code class="language-plaintext highlighter-rouge">Account</code> class directly, we test it through the <code class="language-plaintext highlighter-rouge">Bank</code> class, which is the interface between the user and their accounts.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">Transactions</code> can (and should) be encapsulated into a private member with a getter.</li>
+  <li>Same for the <code class="language-plaintext highlighter-rouge">Transaction</code> class’s members.</li>
 </ul>
 
 <p>Let’s begin.</p>
@@ -574,19 +576,19 @@
 </code></pre></div></div>
 <p><sub><sup>If you have to explain a unit test it’s probably a bad one.<sup>&lt;/sub&gt;</sup></sup></sub></p>
 
-<p>In <code class="highlighter-rouge">Bank</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account_from</span><span class="p">,</span> <span class="n">account_to</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">date</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
         <span class="n">account_from</span><span class="p">.</span><span class="n">_withdraw</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
         <span class="n">account_to</span><span class="p">.</span><span class="n">_deposit</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">Success</span>
 </code></pre></div></div>
-<p><sup>In this implementation, if a <code class="highlighter-rouge">account_to._deposit(amount, date)</code> operation fails for whatsoever reason, the funds would be lost from the <code class="highlighter-rouge">account_from</code> account. For the purposes of this exercise, we will not be dealing with the transactionality of operations. <sup></sup></sup></p>
+<p><sup>In this implementation, if a <code class="language-plaintext highlighter-rouge">account_to._deposit(amount, date)</code> operation fails for whatsoever reason, the funds would be lost from the <code class="language-plaintext highlighter-rouge">account_from</code> account. For the purposes of this exercise, we will not be dealing with the transactionality of operations. <sup></sup></sup></p>
 
 <p>It does pass the test but a transfer isn’t really a cash withdrawal and a deposit. We will have to rethink this functionality. But first, let’s implement the alectronic transfer abroad.</p>
 
 <h3 id="eletronic-transfer-abroad">Eletronic transfer (abroad)</h3>
-<p>We are starting with a test to update an account’s balance. We also want to keep the API of the <code class="highlighter-rouge">Bank</code> and the <code class="highlighter-rouge">Account</code> consistent with the other operations, so we are returning an <code class="highlighter-rouge">OperationResult</code>.</p>
+<p>We are starting with a test to update an account’s balance. We also want to keep the API of the <code class="language-plaintext highlighter-rouge">Bank</code> and the <code class="language-plaintext highlighter-rouge">Account</code> consistent with the other operations, so we are returning an <code class="language-plaintext highlighter-rouge">OperationResult</code>.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">parameterized</span><span class="p">.</span><span class="n">expand</span><span class="p">([</span>
        <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
@@ -604,12 +606,12 @@
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">initialbalance</span> <span class="o">-</span> <span class="n">withdrawalamount</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Bank</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">account</span><span class="p">.</span><span class="n">_transfer_abroad</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Account</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">Account</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
         <span class="bp">self</span><span class="p">.</span><span class="n">__balance</span> <span class="o">-=</span> <span class="n">amount</span>
         <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">Success</span>
@@ -633,7 +635,7 @@
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Account</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">Account</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__balance</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">InsufficientFunds</span>
@@ -665,7 +667,7 @@
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">transaction</span><span class="p">.</span><span class="n">DateTime</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>In <code class="highlighter-rouge">Account</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Account</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">_transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__balance</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">InsufficientFunds</span>
@@ -705,7 +707,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>The last line will assert that with a cash withdrawal, the transaction that is created will be marked as a Cash Withdrawal one.</p>
 
-<p>In <code class="highlighter-rouge">Account</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Account</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__balance</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">InsufficientFunds</span>
@@ -715,7 +717,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">Success</span>
 </code></pre></div></div>
 
-<p>And in <code class="highlighter-rouge">Transaction</code>:</p>
+<p>And in <code class="language-plaintext highlighter-rouge">Transaction</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Transaction</span><span class="p">():</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">debitType</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
@@ -741,14 +743,14 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__debitType</span>
 </code></pre></div></div>
 
-<p>New enum, <code class="highlighter-rouge">DebitType</code>:</p>
+<p>New enum, <code class="language-plaintext highlighter-rouge">DebitType</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DebitType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">CashWithdrawal</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div></div>
 
-<p>We follow the same logic to mark domestic transfers and transfers abroad. I did remove the cash withdrawal and deposit logic previously used to simulate a bank transfer and now I have a different operation in place that creates a transaction marked as a <code class="highlighter-rouge">DomesticElectronicTransfer</code>. I didn’t think that for this exercise we would need a way to distinguish between credit transactions so I didn’t implement one. The funds in a domestic electroncic transfer are still credited to the beneficiary with the generic <code class="highlighter-rouge">Account._deposit</code> method.</p>
+<p>We follow the same logic to mark domestic transfers and transfers abroad. I did remove the cash withdrawal and deposit logic previously used to simulate a bank transfer and now I have a different operation in place that creates a transaction marked as a <code class="language-plaintext highlighter-rouge">DomesticElectronicTransfer</code>. I didn’t think that for this exercise we would need a way to distinguish between credit transactions so I didn’t implement one. The funds in a domestic electroncic transfer are still credited to the beneficiary with the generic <code class="language-plaintext highlighter-rouge">Account._deposit</code> method.</p>
 
-<p>If a transaction is a debit transaction (it’s <code class="highlighter-rouge">TransactionType</code> property is <code class="highlighter-rouge">Debit</code>) then its <code class="highlighter-rouge">DebitType</code> property must not be <code class="highlighter-rouge">None</code>. This is not enforced by unit tests, this is an internal implementation of how <code class="highlighter-rouge">Account</code> creates transactions.</p>
+<p>If a transaction is a debit transaction (it’s <code class="language-plaintext highlighter-rouge">TransactionType</code> property is <code class="language-plaintext highlighter-rouge">Debit</code>) then its <code class="language-plaintext highlighter-rouge">DebitType</code> property must not be <code class="language-plaintext highlighter-rouge">None</code>. This is not enforced by unit tests, this is an internal implementation of how <code class="language-plaintext highlighter-rouge">Account</code> creates transactions.</p>
 
 <h2 id="restriction-1---ban-all-transfers-abroad-and-enforce-a-60-limit-on-daily-cash-withdrawals">Restriction 1 - ban all transfers abroad and enforce a $60 limit on daily cash withdrawals</h2>
 <p>I must admit I only picked up steam once I reached that point. I thought this is going to be the real challenge of this exercise, how do we cleanly enforce restrictions in our bank operations?</p>
@@ -767,14 +769,14 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">OperationResult</span><span class="p">.</span><span class="n">NotAllowed</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>In <code class="highlighter-rouge">Bank</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">NotAllowed</span>
 </code></pre></div></div>
 
 <p>Simple as that. The account’s functionality remains untouched. The “guardian” to the account, which is the bank, controls what kind of access is given to an account.</p>
 
-<p>Here I’ve introduced another named value in the <code class="highlighter-rouge">OperationResult</code> enum. <code class="highlighter-rouge">NotAllowed</code> means that although the funds are there to be debited from the account and the transfer can otherwise happen, there are restrictions in place that disallow this.</p>
+<p>Here I’ve introduced another named value in the <code class="language-plaintext highlighter-rouge">OperationResult</code> enum. <code class="language-plaintext highlighter-rouge">NotAllowed</code> means that although the funds are there to be debited from the account and the transfer can otherwise happen, there are restrictions in place that disallow this.</p>
 
 <p>What’s happened to the other Transfer Abroad tests we had? The test that assert insufficient funds is now failing</p>
 
@@ -794,7 +796,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Line <code class="highlighter-rouge">self.assertEqual(OperationResult.InsufficientFunds, result)</code> is now failing as the <code class="highlighter-rouge">OperationResult</code> we get back is <code class="highlighter-rouge">InsufficientFunds</code>. Also, this test case no longer applies as we simply disallow any and all transfers abroad. Therefore this and all other test that have driven the Transfer Abroad functionality except for the one we just added, no longer assert current business rules and are deleted.</p>
+<p>Line <code class="language-plaintext highlighter-rouge">self.assertEqual(OperationResult.InsufficientFunds, result)</code> is now failing as the <code class="language-plaintext highlighter-rouge">OperationResult</code> we get back is <code class="language-plaintext highlighter-rouge">InsufficientFunds</code>. Also, this test case no longer applies as we simply disallow any and all transfers abroad. Therefore this and all other test that have driven the Transfer Abroad functionality except for the one we just added, no longer assert current business rules and are deleted.</p>
 
 <h3 id="cash-withdrawals">Cash withdrawals</h3>
 
@@ -818,7 +820,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>This obviously fails until we implement the desired functionality</p>
 
-<p>In <code class="highlighter-rouge">Bank</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">):</span>
@@ -827,7 +829,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">account</span><span class="p">.</span><span class="n">_withdraw</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
 </code></pre></div></div>
 
-<p>Some test cases for <code class="highlighter-rouge">test_withdraw_removes_from_balance</code>,<code class="highlighter-rouge">test_withdraw_overdraft_results_in_error</code> and <code class="highlighter-rouge">test_withdraw_creates_transaction</code> are failing because thye are out of date so we update the test cases for the withdrawal amounts to conform to the new business rules.</p>
+<p>Some test cases for <code class="language-plaintext highlighter-rouge">test_withdraw_removes_from_balance</code>,<code class="language-plaintext highlighter-rouge">test_withdraw_overdraft_results_in_error</code> and <code class="language-plaintext highlighter-rouge">test_withdraw_creates_transaction</code> are failing because thye are out of date so we update the test cases for the withdrawal amounts to conform to the new business rules.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">parameterized</span><span class="p">.</span><span class="n">expand</span><span class="p">([</span>
         <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
@@ -882,7 +884,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">transaction</span><span class="p">.</span><span class="n">DateTime</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>At this point I decided to swap the inner classes for mocking the date and time with Python’s <code class="highlighter-rouge">unittest.mock</code> library to make tests more readable.</p>
+<p>At this point I decided to swap the inner classes for mocking the date and time with Python’s <code class="language-plaintext highlighter-rouge">unittest.mock</code> library to make tests more readable.</p>
 
 <h3 id="more-than-one-cash-withdrawal-in-a-day">More than one cash withdrawal in a day</h3>
 
@@ -900,7 +902,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>In <code class="highlighter-rouge">Bank</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">amount</span> <span class="o">&gt;</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span><span class="p">):</span>
@@ -917,7 +919,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
             
         <span class="k">return</span> <span class="n">account</span><span class="p">.</span><span class="n">_withdraw</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
 </code></pre></div></div>
-<p>Note the class variable <code class="highlighter-rouge">__max_daily_limit</code>. This is a constant set to 60. We have done away with the magic integer of 60 and have given it context.</p>
+<p>Note the class variable <code class="language-plaintext highlighter-rouge">__max_daily_limit</code>. This is a constant set to 60. We have done away with the magic integer of 60 and have given it context.</p>
 
 <p>This code will not renew the daily allowance of an account the next day. Let’s write a test that asserts that we will be able to.</p>
 
@@ -938,7 +940,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>And in <code class="highlighter-rouge">Bank</code>:</p>
+<p>And in <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">amount</span> <span class="o">&gt;</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span><span class="p">):</span>
@@ -957,7 +959,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 </code></pre></div></div>
 <p>Here, we’re checking what has already been withdrawn on the day before we decide if the operation is allowed.</p>
 
-<p>Removing the first two lines of <code class="highlighter-rouge">withdraw_from_account</code> does not affect the tests, therefore the lines were redundant.</p>
+<p>Removing the first two lines of <code class="language-plaintext highlighter-rouge">withdraw_from_account</code> does not affect the tests, therefore the lines were redundant.</p>
 
 <h2 id="restriction-2-roll-over-missed-cash-withdrawals-for-up-to-a-week">Restriction 2: Roll over missed cash withdrawals for up to a week.</h2>
 
@@ -976,7 +978,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>Small steps here. May 12, 2020 is a Tuesday and we want to take out Tuesday’s allowance as well as Monday’s.</p>
 
-<p>In <code class="highlighter-rouge">Bank</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>           
         <span class="n">amount_already_drawn</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1002,9 +1004,9 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>There’s a lot going on here. Is there any clean up we can do?</p>
 
-<p>For one thing, some of the account querying can be moved where it’s better suited; the <code class="highlighter-rouge">Account</code> class.</p>
+<p>For one thing, some of the account querying can be moved where it’s better suited; the <code class="language-plaintext highlighter-rouge">Account</code> class.</p>
 
-<p><code class="highlighter-rouge">Account</code></p>
+<p><code class="language-plaintext highlighter-rouge">Account</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_get_withdrawn_amount_on_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>     
         <span class="n">amount</span> <span class="o">=</span> <span class="mi">0</span>   
         <span class="k">for</span> <span class="n">trn</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">Transactions</span><span class="p">:</span>
@@ -1014,7 +1016,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">amount</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Bank</code></p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>           
         <span class="n">amount_already_drawn</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_withdrawn_amount_on_date</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
 
@@ -1032,7 +1034,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 </code></pre></div></div>
 <p>It’s already starting to look better. Proceeding further:</p>
 
-<p><code class="highlighter-rouge">Bank</code></p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>           
         <span class="n">amount_already_drawn</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_withdrawn_amount_on_date</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
 
@@ -1088,7 +1090,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 <span class="err">        </span><span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">1690</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Passing the test in <code class="highlighter-rouge">Bank</code>:</p>
+<p>Passing the test in <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__can_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">amount_already_drawn</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_withdrawn_amount_on_date</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
@@ -1108,13 +1110,13 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>That will take us back five days to calculate withdrawn amounts. Philosophical analysis: this is <strong>any</strong> five days back, so if the current day was a Tuesday this implementation would calculate all withdrawn amounts back to Thursday next week so we’re getting more functionality than the unit test requires. This all comes down to “what is the smallest piece of code that will pass a test”. The above segment will pass the test. Placing guard clauses to only stop at the Monday of the current week (and not cover potential cases not covered by the newest unit test) would require additional code, so I didn’t do it as it seemed like I would overengineer the solution. However, there will be other unit tests that prevent the algorithm going back too far in the past.</p>
 
-<p>After <code class="highlighter-rouge">test_withdrawal_if_less_than_the_limit_was_drawn_throughout_the_week_allow_withdrawal_up_to_today</code>, passed, other tests failed. More specifically:</p>
+<p>After <code class="language-plaintext highlighter-rouge">test_withdrawal_if_less_than_the_limit_was_drawn_throughout_the_week_allow_withdrawal_up_to_today</code>, passed, other tests failed. More specifically:</p>
 
-<p><code class="highlighter-rouge">test_withdrawal_of_over_daily_limit_not_allowed</code>
-<code class="highlighter-rouge">test_withdrawal_over_daily_limit_in_multiple_transactions_not_allowed_two_transactions</code>
-<code class="highlighter-rouge">test_withdrawal_over_daily_limit_in_multiple_transactions_not_allowed_three_transactions</code></p>
+<p><code class="language-plaintext highlighter-rouge">test_withdrawal_of_over_daily_limit_not_allowed</code>
+<code class="language-plaintext highlighter-rouge">test_withdrawal_over_daily_limit_in_multiple_transactions_not_allowed_two_transactions</code>
+<code class="language-plaintext highlighter-rouge">test_withdrawal_over_daily_limit_in_multiple_transactions_not_allowed_three_transactions</code></p>
 
-<p>were failing as the implementaiton in <code class="highlighter-rouge">Bank</code> would go back five days in the past and wouldn’t stop on Monday. These tests won’t pass until we change the logic of the <code class="highlighter-rouge">Bank</code> class to stop on Monday of the current week and put new test cases on them.</p>
+<p>were failing as the implementaiton in <code class="language-plaintext highlighter-rouge">Bank</code> would go back five days in the past and wouldn’t stop on Monday. These tests won’t pass until we change the logic of the <code class="language-plaintext highlighter-rouge">Bank</code> class to stop on Monday of the current week and put new test cases on them.</p>
 
 <p>Next up, we need to do something about this:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">money_drawn_previous_day</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_withdrawn_amount_on_date</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -1149,7 +1151,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">operation_result</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>In <code class="highlighter-rouge">Bank</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__can_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
         <span class="n">amount_already_drawn</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_withdrawn_amount_on_date</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
@@ -1166,9 +1168,9 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="bp">True</span>
 </code></pre></div></div>
 
-<p>In Python, <code class="highlighter-rouge">datetime.weekday()</code> is a zero-based index of the day of the week, so it ranges from 0 (Monday) to 6 (Sunday). This passes the test but what can we do to make it better?</p>
+<p>In Python, <code class="language-plaintext highlighter-rouge">datetime.weekday()</code> is a zero-based index of the day of the week, so it ranges from 0 (Monday) to 6 (Sunday). This passes the test but what can we do to make it better?</p>
 
-<p>For one thing, removing line <code class="highlighter-rouge">amount_already_drawn = account._get_withdrawn_amount_on_date(now)</code> and the conditional <code class="highlighter-rouge">if amount_already_drawn + amount &gt; Bank.__max_daily_limit:</code> will still pass the test and can be removed. One could argue that without the if clause, the method will enumerate cash withdrawals for the past few days even if withdrawal eligibility is ruled out from day one, but our aim here is maintainability before performance. We can make it fast later if we have to. For now, let’s simplify our algorithm.</p>
+<p>For one thing, removing line <code class="language-plaintext highlighter-rouge">amount_already_drawn = account._get_withdrawn_amount_on_date(now)</code> and the conditional <code class="language-plaintext highlighter-rouge">if amount_already_drawn + amount &gt; Bank.__max_daily_limit:</code> will still pass the test and can be removed. One could argue that without the if clause, the method will enumerate cash withdrawals for the past few days even if withdrawal eligibility is ruled out from day one, but our aim here is maintainability before performance. We can make it fast later if we have to. For now, let’s simplify our algorithm.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__can_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
@@ -1180,9 +1182,9 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
         <span class="k">return</span> <span class="n">money_withdrawn_this_week</span> <span class="o">+</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span> <span class="o">*</span> <span class="p">(</span><span class="n">day_of_week_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  
 </code></pre></div></div>
-<p>That’s good, except we can do better. Calculation of the money withdrawn in the current week can be moved to <code class="highlighter-rouge">Account</code> as it’s a query more appropriate for an account.</p>
+<p>That’s good, except we can do better. Calculation of the money withdrawn in the current week can be moved to <code class="language-plaintext highlighter-rouge">Account</code> as it’s a query more appropriate for an account.</p>
 
-<p><code class="highlighter-rouge">Bank</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__can_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span> 
         <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
         <span class="n">day_of_week_index</span> <span class="o">=</span> <span class="n">now</span><span class="p">.</span><span class="n">weekday</span><span class="p">()</span>     
@@ -1191,7 +1193,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">money_withdrawn_this_week</span> <span class="o">+</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span> <span class="o">*</span> <span class="p">(</span><span class="n">day_of_week_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>    
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Account</code> gets a new internal method:</p>
+<p><code class="language-plaintext highlighter-rouge">Account</code> gets a new internal method:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_get_withdrawn_amount_this_week_so_far_for_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
         <span class="n">day_of_week_index</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">weekday</span><span class="p">()</span>
         <span class="n">money_withdrawn</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1212,9 +1214,9 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">amount</span>
 </code></pre></div></div>
 
-<p>Test <code class="highlighter-rouge">test_withdrawal_if_monday_missed_withdraw_twice_as_much_on_tuesday</code> is now redundant and removed.</p>
+<p>Test <code class="language-plaintext highlighter-rouge">test_withdrawal_if_monday_missed_withdraw_twice_as_much_on_tuesday</code> is now redundant and removed.</p>
 
-<p>Test <code class="highlighter-rouge">test_withdrawal_if_less_than_the_limit_was_drawn_throughout_the_week_allow_withdrawal_up_to_today</code> can have additional test cases to check what happens across weeks; if we attempt to draw out $121 on a Tuesday, that must be disallowed as up to $120 are permitted on any Tuesday.</p>
+<p>Test <code class="language-plaintext highlighter-rouge">test_withdrawal_if_less_than_the_limit_was_drawn_throughout_the_week_allow_withdrawal_up_to_today</code> can have additional test cases to check what happens across weeks; if we attempt to draw out $121 on a Tuesday, that must be disallowed as up to $120 are permitted on any Tuesday.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">@</span><span class="n">parameterized</span><span class="p">.</span><span class="n">expand</span><span class="p">([</span>
        <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">181</span><span class="p">,</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">NotAllowed</span><span class="p">),</span> <span class="c1">#first day: Saturday, second day: Wednesday next week
@@ -1297,7 +1299,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">DebitType</span><span class="p">.</span><span class="n">ElectronicTransferAbroad</span><span class="p">,</span> <span class="n">transaction</span><span class="p">.</span><span class="n">DebitType</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>And in <code class="highlighter-rouge">Account</code>:</p>
+<p>And in <code class="language-plaintext highlighter-rouge">Account</code>:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_transfer_domestic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__balance</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">OperationResult</span><span class="p">.</span><span class="n">InsufficientFunds</span>
@@ -1340,7 +1342,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 </code></pre></div></div>
 <p>A parameterised unit test like this will allow us to go past the initial implementation which would allow transfers abroad over the weekly limit if multiple of those were had.</p>
 
-<p><code class="highlighter-rouge">Bank</code></p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">__can_transfer_abroad</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>  
             <span class="k">return</span> <span class="n">account</span><span class="p">.</span><span class="n">_transfer_abroad</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
@@ -1356,7 +1358,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <h3 id="testing-cash-withdrawals-first-and-transfers-abroad-second">Testing cash withdrawals (first) and transfers abroad (second)</h3>
 
-<p>This is going to be interesting to see because in the <code class="highlighter-rouge">__can_transfer_abroad</code> method of the <code class="highlighter-rouge">Bank</code> class, before the decision whether to allow a transfer abroad is made, we’re checking the total amount that has been debited this week including cash withdrawals, not just transfers abroad. <code class="highlighter-rouge">Account._get_withdrawn_amount_this_week_so_far_for_date</code> will return a greater amount if also cash withdrawals were made during the week and legitimate below-limit amounts to be transferred abroad won’t check out. Let’s distinguish the two types of debit.</p>
+<p>This is going to be interesting to see because in the <code class="language-plaintext highlighter-rouge">__can_transfer_abroad</code> method of the <code class="language-plaintext highlighter-rouge">Bank</code> class, before the decision whether to allow a transfer abroad is made, we’re checking the total amount that has been debited this week including cash withdrawals, not just transfers abroad. <code class="language-plaintext highlighter-rouge">Account._get_withdrawn_amount_this_week_so_far_for_date</code> will return a greater amount if also cash withdrawals were made during the week and legitimate below-limit amounts to be transferred abroad won’t check out. Let’s distinguish the two types of debit.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_withdraw_to_limit_and_transfer_abroad_to_limit_in_same_week</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="p">()</span> 
@@ -1370,7 +1372,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 </code></pre></div></div>
 <p><sup>It was a bad idea to not mock the date here. I wrote this test on a Sunday. The next day this test failed when asserting that the cash withdrawal is successful. Why? (Hint: it’s in the business rules).</sup></p>
 
-<p>In the <code class="highlighter-rouge">Bank</code> class:</p>
+<p>In the <code class="language-plaintext highlighter-rouge">Bank</code> class:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__can_transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span> 
         <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">()</span> 
         
@@ -1379,9 +1381,9 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">money_transfered_abroad_this_week</span> <span class="o">+</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_weekly_bank_transfer_abroad_limit</span> 
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Bank</code> is using the yet-unwritten <code class="highlighter-rouge">Account</code>’s method to get all the money that’s been transferred abroad this week.</p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code> is using the yet-unwritten <code class="language-plaintext highlighter-rouge">Account</code>’s method to get all the money that’s been transferred abroad this week.</p>
 
-<p><code class="highlighter-rouge">Account</code></p>
+<p><code class="language-plaintext highlighter-rouge">Account</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_get_amount_transfered_abroad_this_week_so_far_for_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
         <span class="n">day_of_week_index</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">weekday</span><span class="p">()</span>
         <span class="n">money_withdrawn</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1403,7 +1405,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <h3 id="testing-transfers-abroad-second-and-cash-withdrawals-first">Testing transfers abroad (second) and cash withdrawals (first)</h3>
 
-<p>Now, we’ll transfer money abroad and then withdraw cash. Bear in mind that <code class="highlighter-rouge">Account</code>’s <code class="highlighter-rouge">__get_withdrawn_amount_on_date</code> still looks like this:</p>
+<p>Now, we’ll transfer money abroad and then withdraw cash. Bear in mind that <code class="language-plaintext highlighter-rouge">Account</code>’s <code class="language-plaintext highlighter-rouge">__get_withdrawn_amount_on_date</code> still looks like this:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__get_withdrawn_amount_on_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>     
         <span class="n">amount</span> <span class="o">=</span> <span class="mi">0</span>   
@@ -1429,7 +1431,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">OperationResult</span><span class="p">.</span><span class="n">Success</span><span class="p">,</span> <span class="n">result_withdraw</span><span class="p">)</span>        
 </code></pre></div></div>
 
-<p>To pass this, we revisit <code class="highlighter-rouge">__get_withdrawn_amount_on_date</code> to add the cash withdrawal restriction</p>
+<p>To pass this, we revisit <code class="language-plaintext highlighter-rouge">__get_withdrawn_amount_on_date</code> to add the cash withdrawal restriction</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__get_withdrawn_amount_on_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>     
         <span class="n">amount</span> <span class="o">=</span> <span class="mi">0</span>   
@@ -1445,7 +1447,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <h3 id="refactor-1-factor-out-debit-transaction-queries">Refactor 1: Factor out debit transaction queries</h3>
 
-<p>There are two private methods in <code class="highlighter-rouge">Account</code> that largely do the same thing; one gets the total amount withdrawn as cash on a date and the other gets the total amount transfered abroad. We can extract a common method for the two.</p>
+<p>There are two private methods in <code class="language-plaintext highlighter-rouge">Account</code> that largely do the same thing; one gets the total amount withdrawn as cash on a date and the other gets the total amount transfered abroad. We can extract a common method for the two.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">_get_withdrawn_amount_this_week_so_far_for_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_get_debited_amount_this_week_so_far_for_date</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">DebitType</span><span class="p">.</span><span class="n">CashWithdrawal</span><span class="p">)</span>
@@ -1476,9 +1478,9 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <h3 id="refactor-2-factor-out-debit-transaction-operations">Refactor 2: Factor out debit transaction operations</h3>
 
-<p>Withdrawing and transfering are very similar in our example. All that is changing is the marking of a transaction with a <code class="highlighter-rouge">DebitType</code> enum value.</p>
+<p>Withdrawing and transfering are very similar in our example. All that is changing is the marking of a transaction with a <code class="language-plaintext highlighter-rouge">DebitType</code> enum value.</p>
 
-<p><code class="highlighter-rouge">Account</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">Account</code>:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__debit</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">DebitType</span><span class="p">.</span><span class="n">CashWithdrawal</span><span class="p">)</span>
 
@@ -1517,7 +1519,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Implementation in <code class="highlighter-rouge">Bank</code>:</p>
+<p>Implementation in <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>                
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">__can_withdraw</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
@@ -1535,7 +1537,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">amount</span> <span class="o">==</span> <span class="n">total_deposits_after_cutoff_date</span>
 </code></pre></div></div>
 
-<p>This passes the test. Let’s refactor. The query in <code class="highlighter-rouge">__is_fresh_deposit</code> can be move to <code class="highlighter-rouge">Account</code> in the same fashion as previous queries.</p>
+<p>This passes the test. Let’s refactor. The query in <code class="language-plaintext highlighter-rouge">__is_fresh_deposit</code> can be move to <code class="language-plaintext highlighter-rouge">Account</code> in the same fashion as previous queries.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">_get_total_amount_for_credits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
         <span class="n">total_deposits_after_cutoff_date</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1546,7 +1548,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">total_deposits_after_cutoff_date</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Bank</code> becomes:</p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code> becomes:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__is_fresh_deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">total_deposits_after_cutoff_date</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_total_amount_for_credits</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
@@ -1555,7 +1557,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>The relaxation date stays with the bank, the rule-setter.</p>
 
-<p>We should also do away with the “magic” date in <code class="highlighter-rouge">__is_fresh_deposit</code> and move it to a class variable.</p>
+<p>We should also do away with the “magic” date in <code class="language-plaintext highlighter-rouge">__is_fresh_deposit</code> and move it to a class variable.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">__start_date_for_fresh_transactions</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
@@ -1590,7 +1592,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
                 <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Balance</span> <span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Bank</code></p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">withdraw_from_account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>       
         <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">__can_withdraw</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="p">.</span><span class="n">__can_withdraw_with_fresh_deposit</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>  
             <span class="k">return</span> <span class="n">account</span><span class="p">.</span><span class="n">_withdraw</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
@@ -1604,7 +1606,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">total_deposits_after_cutoff_date</span> <span class="o">+</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span> <span class="o">*</span> <span class="p">(</span><span class="n">day_of_week_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_withdrawn_amount_this_week_so_far_for_date</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
 </code></pre></div></div>
 
-<p>In <code class="highlighter-rouge">Account</code>, <code class="highlighter-rouge">_get_total_amount_for_credits</code> is renamed and modified.</p>
+<p>In <code class="language-plaintext highlighter-rouge">Account</code>, <code class="language-plaintext highlighter-rouge">_get_total_amount_for_credits</code> is renamed and modified.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_get_total_amount_for_credits_on_and_after_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
         <span class="n">total_deposits_after_cutoff_date</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1633,7 +1635,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Balance</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Bank</code></p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">transfer_abroad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">__can_transfer_abroad</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="p">.</span><span class="n">__can_transfer_abroad_with_fresh_deposit</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>  
             <span class="k">return</span> <span class="n">account</span><span class="p">.</span><span class="n">_transfer_abroad</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
@@ -1650,7 +1652,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 </code></pre></div></div>
 
 <h3 id="cleanup">Cleanup</h3>
-<p>The OR conditional in the <code class="highlighter-rouge">transfer_abroad</code> method is in place in order to make sure existing, up-to-date tests aren’t broken when adding new rules. However, the bodies of <code class="highlighter-rouge">__can_transfer_abroad</code> and <code class="highlighter-rouge">__can_transfer_abroad_with_fresh_deposit</code> look a lot alike and it turns out that <code class="highlighter-rouge">__can_transfer_abroad</code> is a redundant check that can be removed without failing the tests. <code class="highlighter-rouge">__can_transfer_abroad_with_fresh_deposit</code> covers both “fresh” deposits as well as older ones. The same is true of the <code class="highlighter-rouge">withdraw_from_account</code>, so the extra check there is removed.</p>
+<p>The OR conditional in the <code class="language-plaintext highlighter-rouge">transfer_abroad</code> method is in place in order to make sure existing, up-to-date tests aren’t broken when adding new rules. However, the bodies of <code class="language-plaintext highlighter-rouge">__can_transfer_abroad</code> and <code class="language-plaintext highlighter-rouge">__can_transfer_abroad_with_fresh_deposit</code> look a lot alike and it turns out that <code class="language-plaintext highlighter-rouge">__can_transfer_abroad</code> is a redundant check that can be removed without failing the tests. <code class="language-plaintext highlighter-rouge">__can_transfer_abroad_with_fresh_deposit</code> covers both “fresh” deposits as well as older ones. The same is true of the <code class="language-plaintext highlighter-rouge">withdraw_from_account</code>, so the extra check there is removed.</p>
 
 <h3 id="asserting-interwowen-cash-withdrawals-and-transfer-abroad-transactions">Asserting interwowen cash withdrawals and transfer abroad transactions</h3>
 
@@ -1687,7 +1689,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 </code></pre></div></div>
 <p>Before the first deposit, we always set the date to a date earlier than 18/05/2020 so the money debited are subject to restrictions</p>
 
-<p><code class="highlighter-rouge">Bank</code></p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code></p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__can_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">day_of_week_index</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">weekday</span><span class="p">()</span>
@@ -1696,7 +1698,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">total_deposits_after_cutoff_date</span> <span class="o">+</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span> <span class="o">*</span> <span class="p">(</span><span class="n">day_of_week_index</span> <span class="o">+</span> <span class="n">money_withdrawn_this_week_so_far_for_date</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">Account</code></p>
+<p><code class="language-plaintext highlighter-rouge">Account</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_get_debited_amount_this_week_so_far_for_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">debit_type</span><span class="p">):</span>
         <span class="n">day_of_week_index</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">weekday</span><span class="p">()</span>
         <span class="n">money_debited</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1706,7 +1708,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">money_debited</span>
 </code></pre></div></div>
 
-<p>And with yet another method extraction in <code class="highlighter-rouge">Bank</code>:</p>
+<p>And with yet another method extraction in <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__can_withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="n">total_deposits_after_cutoff_date</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="n">_get_total_amount_for_credits_on_and_after_date</span><span class="p">(</span><span class="n">Bank</span><span class="p">.</span><span class="n">__start_date_for_fresh_transactions</span><span class="p">)</span>
@@ -1743,7 +1745,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>Again, we deposit some money before the date Iteration 4 takes effect so they are subject to the capital control restrictions as the rules don’t apply to any money deposited afterwards. Then, at a date in the future, we withdraw $840. We pick 1-Jun-2020 as the date Iteraion 5 takes effect.</p>
 
-<p>In <code class="highlighter-rouge">Bank</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__calculate_max_withdrawal_limit_on_current_day_of_week</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
         <span class="n">now</span> <span class="o">=</span>  <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">date</span><span class="p">()</span>
@@ -1778,7 +1780,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">OperationResult</span><span class="p">.</span><span class="n">NotAllowed</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>That’s failing, so we’re adding this to <code class="highlighter-rouge">Bank</code>:</p>
+<p>That’s failing, so we’re adding this to <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">def</span> <span class="nf">__calculate_max_withdrawal_limit_on_current_day_of_week</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
@@ -1792,7 +1794,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span> <span class="o">*</span> <span class="n">day_of_week_index_two_weeks</span>
 </code></pre></div></div>
 
-<p>This will make test cases for <code class="highlighter-rouge">test_missed_daily_cash_withdrawals_over_two_weeks_old_does_not_roll_over_for_old_deposits</code> pass provided these do not exceed 28 days after 1/6/2020. So, let’s add test cases for July and fail them!</p>
+<p>This will make test cases for <code class="language-plaintext highlighter-rouge">test_missed_daily_cash_withdrawals_over_two_weeks_old_does_not_roll_over_for_old_deposits</code> pass provided these do not exceed 28 days after 1/6/2020. So, let’s add test cases for July and fail them!</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">parameterized</span><span class="p">.</span><span class="n">expand</span><span class="p">([</span>
        <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">900</span><span class="p">),</span>
@@ -1816,7 +1818,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
 <p>You see where this is going. We need to think in terms of 14-day intervals.</p>
 
-<p><code class="highlighter-rouge">Bank</code></p>
+<p><code class="language-plaintext highlighter-rouge">Bank</code></p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__calculate_max_withdrawal_limit_on_current_day_of_week</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
         <span class="n">now</span> <span class="o">=</span>  <span class="bp">self</span><span class="p">.</span><span class="n">__datetimeprovider</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">date</span><span class="p">()</span>
 
@@ -1828,7 +1830,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="n">Bank</span><span class="p">.</span><span class="n">__max_daily_limit</span> <span class="o">*</span> <span class="n">day_of_week_index_two_weeks</span>
 </code></pre></div></div>
 
-<p>A little refactoring is in order. In <code class="highlighter-rouge">Bank</code>:</p>
+<p>A little refactoring is in order. In <code class="language-plaintext highlighter-rouge">Bank</code>:</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="n">__start_of_two_week_periods</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">date</span><span class="p">()</span>
 
@@ -1844,11 +1846,11 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
         <span class="k">return</span> <span class="mi">14</span> <span class="k">if</span> <span class="n">day_of_week_index_two_weeks</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">day_of_week_index_two_weeks</span>
 </code></pre></div></div>
 
-<p>There are more tests failing still. That is happening because restrictions are now reset every other week instead of every week and the withdrawal amount has proportionately increased. We need to go through all the failing tests one-by-one and adjust them. I started with the smaller ones, such as <code class="highlighter-rouge">test_withdraw_creates_transaction</code> and proceeded to the longer ones. Tests are updated with new dates post 1-6-2020 as the release will happen after a specific date and the rules will be referencing that specific date. Edge cases which previously failed are also updated with appropriate dates and amounts. We’re not losing generality, just like we didn’t lose generality implementing Iteration 4 as the releases would take place on the dates that are referenced in <code class="highlighter-rouge">Bank</code> as class variables.</p>
+<p>There are more tests failing still. That is happening because restrictions are now reset every other week instead of every week and the withdrawal amount has proportionately increased. We need to go through all the failing tests one-by-one and adjust them. I started with the smaller ones, such as <code class="language-plaintext highlighter-rouge">test_withdraw_creates_transaction</code> and proceeded to the longer ones. Tests are updated with new dates post 1-6-2020 as the release will happen after a specific date and the rules will be referencing that specific date. Edge cases which previously failed are also updated with appropriate dates and amounts. We’re not losing generality, just like we didn’t lose generality implementing Iteration 4 as the releases would take place on the dates that are referenced in <code class="language-plaintext highlighter-rouge">Bank</code> as class variables.</p>
 
 <h2 id="final-thoughts">Final Thoughts</h2>
 
-<p>As mentioned I didn’t initially have a mock to generate dates at will, because <a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>, yet I didn’t want to reference a <code class="highlighter-rouge">datetime</code> straight from the <code class="highlighter-rouge">Bank</code> class but wanted to have it as a constructor dependency in order for the <code class="highlighter-rouge">Bank</code> class to advertise the fact that it needs a <code class="highlighter-rouge">datetime</code> object.</p>
+<p>As mentioned I didn’t initially have a mock to generate dates at will, because <a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>, yet I didn’t want to reference a <code class="language-plaintext highlighter-rouge">datetime</code> straight from the <code class="language-plaintext highlighter-rouge">Bank</code> class but wanted to have it as a constructor dependency in order for the <code class="language-plaintext highlighter-rouge">Bank</code> class to advertise the fact that it needs a <code class="language-plaintext highlighter-rouge">datetime</code> object.</p>
 
 <p>As I was changing the implementation code, existing tests acted as a safeguard that ensured that unrelated functionality didn’t break. This is one of the benefits of having unit tests and a good coverage apart from all the other benefits, such as not overengineering your implementation and reducing regressions.</p>
 
@@ -1900,6 +1902,8 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
   <div class="col-box-title">Newest Posts</div>
   <ul class="post-list">
     
+      <li><a class="post-link" href="/blog/2022/10/01/newrelic-agent-apline-docker-container/">Installing the NewRelic .NET agent on an Alpine Docker image</a></li>
+    
       <li><a class="post-link" href="/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/">An implementation of the Capital Controls kata in Python</a></li>
     
       <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
@@ -1907,8 +1911,6 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
       <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
     
       <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
-    
-      <li><a class="post-link" href="/blog/2018/04/09/Jekyll-blog-posts-structure/">Jekyll blog posts in their own sub URL</a></li>
     
   </ul>
 </div>
@@ -1926,7 +1928,7 @@ We have three types of debit, one is for cash withdrawals, one for domestic bank
 
     <footer class="footer">
 <div class="wrapper">
-&copy; 2020 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+&copy; 2022 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
 </div>
 </footer>
 

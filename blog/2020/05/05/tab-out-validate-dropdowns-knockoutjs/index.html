@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Trigger validation of a dropdown box when tabbing over it in KnockoutJS | Michali K</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Trigger validation of a dropdown box when tabbing over it in KnockoutJS" />
 <meta name="author" content="Michali K" />
 <meta property="og:locale" content="en_US" />
@@ -18,8 +18,10 @@
 <meta property="og:site_name" content="Michali K" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-05-05T08:00:00+10:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Trigger validation of a dropdown box when tabbing over it in KnockoutJS" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/","headline":"Trigger validation of a dropdown box when tabbing over it in KnockoutJS","dateModified":"2020-05-05T08:00:00+10:00","datePublished":"2020-05-05T08:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/"},"author":{"@type":"Person","name":"Michali K"},"description":"When tabbing over a dropdown box in a form, it’s tougher to trigger its validations than it is with empty text boxes. Here’s a trick on how to enable that.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michali K"},"dateModified":"2020-05-05T08:00:00+10:00","datePublished":"2020-05-05T08:00:00+10:00","description":"When tabbing over a dropdown box in a form, it’s tougher to trigger its validations than it is with empty text boxes. Here’s a trick on how to enable that.","headline":"Trigger validation of a dropdown box when tabbing over it in KnockoutJS","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/"},"url":"http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/css/main.css">
@@ -146,7 +148,7 @@
      <span class="p">});</span>  
 </code></pre></div></div>
 
-<p>The view model property <code class="highlighter-rouge">state</code> is set up with an empty string value, <em>same as the placeholder entry’s value</em>. Were this not the case, the “required” validation of the dropdown would kick in immediately. This is because while the observable is initialized with another value, when Knockout evaluates the value binding it sets the <code class="highlighter-rouge">state</code> field to the currently selected empty string value. Because undefined != “”, validation fails as knockout thinks that the property has been modified.</p>
+<p>The view model property <code class="language-plaintext highlighter-rouge">state</code> is set up with an empty string value, <em>same as the placeholder entry’s value</em>. Were this not the case, the “required” validation of the dropdown would kick in immediately. This is because while the observable is initialized with another value, when Knockout evaluates the value binding it sets the <code class="language-plaintext highlighter-rouge">state</code> field to the currently selected empty string value. Because undefined != “”, validation fails as knockout thinks that the property has been modified.</p>
 
 <p>Then create a property with an observable that will trigger validation visuals in the DOM:</p>
 
@@ -155,7 +157,7 @@
 <span class="p">});</span>
 </code></pre></div></div>
 
-<p>Where <code class="highlighter-rouge">validateField</code> is a generic validation function you would use with text fields too:</p>
+<p>Where <code class="language-plaintext highlighter-rouge">validateField</code> is a generic validation function you would use with text fields too:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">validateField</span><span class="p">(</span><span class="nx">field</span><span class="p">){</span>
     <span class="k">return</span> <span class="o">!</span><span class="nx">field</span><span class="p">.</span><span class="nx">isValid</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">field</span><span class="p">.</span><span class="nx">isModified</span><span class="p">();</span>
@@ -164,12 +166,12 @@
 
 <p>An additional step is required to trigger the validations of a dropdown when focusing and unfocusing from it.</p>
 
-<p>The <code class="highlighter-rouge">blur</code> event is fired when a user clicks out or tabs out from an input element. We need to let knockout know that it’s a event it should watch out for:</p>
+<p>The <code class="language-plaintext highlighter-rouge">blur</code> event is fired when a user clicks out or tabs out from an input element. We need to let knockout know that it’s a event it should watch out for:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">valueUpdate</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">blur</span><span class="dl">'</span><span class="p">]</span>
 </code></pre></div></div>
 
-<p>Edit the <code class="highlighter-rouge">selectState</code> opening dropdown tag as follows:</p>
+<p>Edit the <code class="language-plaintext highlighter-rouge">selectState</code> opening dropdown tag as follows:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;select</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">name=</span><span class="s">"expiry-month"</span> <span class="na">id=</span><span class="s">"selectState"</span> 
             <span class="na">aria-describedby=</span><span class="s">"selectStateErr"</span> 
@@ -182,7 +184,7 @@
 <span class="p">};</span>    
 </code></pre></div></div>
 
-<p>Now when the dropdown loses focus its bound observable will have its <code class="highlighter-rouge">valueHasMutated</code> function fired. <code class="highlighter-rouge">valueHasMutated</code> normally notifies the observable’s subscribers that the value has changed but manually invoking it will have the same effect.</p>
+<p>Now when the dropdown loses focus its bound observable will have its <code class="language-plaintext highlighter-rouge">valueHasMutated</code> function fired. <code class="language-plaintext highlighter-rouge">valueHasMutated</code> normally notifies the observable’s subscribers that the value has changed but manually invoking it will have the same effect.</p>
 
 <p>With that in place, you have a dropdown whose validation is also triggered by it losing focus.</p>
 
@@ -230,6 +232,8 @@
   <div class="col-box-title">Newest Posts</div>
   <ul class="post-list">
     
+      <li><a class="post-link" href="/blog/2022/10/01/newrelic-agent-apline-docker-container/">Installing the NewRelic .NET agent on an Alpine Docker image</a></li>
+    
       <li><a class="post-link" href="/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/">An implementation of the Capital Controls kata in Python</a></li>
     
       <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
@@ -237,8 +241,6 @@
       <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
     
       <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
-    
-      <li><a class="post-link" href="/blog/2018/04/09/Jekyll-blog-posts-structure/">Jekyll blog posts in their own sub URL</a></li>
     
   </ul>
 </div>
@@ -256,7 +258,7 @@
 
     <footer class="footer">
 <div class="wrapper">
-&copy; 2020 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+&copy; 2022 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
 </div>
 </footer>
 

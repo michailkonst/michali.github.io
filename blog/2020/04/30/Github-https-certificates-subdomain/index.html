@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats). | Michali K</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats)." />
 <meta name="author" content="Michali K" />
 <meta property="og:locale" content="en_US" />
@@ -18,8 +18,10 @@
 <meta property="og:site_name" content="Michali K" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-04-30T00:00:00+10:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats)." />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/","headline":"Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).","dateModified":"2020-04-30T00:00:00+10:00","datePublished":"2020-04-30T00:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/"},"author":{"@type":"Person","name":"Michali K"},"description":"Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. ","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michali K"},"dateModified":"2020-04-30T00:00:00+10:00","datePublished":"2020-04-30T00:00:00+10:00","description":"Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. ","headline":"Github Pages offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/"},"url":"http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/css/main.css">
@@ -108,27 +110,27 @@
 
 <p>However, you can still have your connections to your apex domain redirect to a subdomain specified in Github pages. To set up your site on your Github Pages repo on a subdomain, go your Github page repo’s settings and add the fully qualified domain under “Custom Domain”.</p>
 
-<p>Then go to your domain registrar’s DNS management. You need a <code class="highlighter-rouge">CNAME</code> entry for the subdomain to point to your <code class="highlighter-rouge">[name].github.io</code> domain. Then for the apex domain, create four A records that point to the four IP addresses for Github pages:</p>
+<p>Then go to your domain registrar’s DNS management. You need a <code class="language-plaintext highlighter-rouge">CNAME</code> entry for the subdomain to point to your <code class="language-plaintext highlighter-rouge">[name].github.io</code> domain. Then for the apex domain, create four A records that point to the four IP addresses for Github pages:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>185.199.108.153
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>185.199.108.153
 185.199.109.153
 185.199.110.153
 185.199.111.153
 </code></pre></div></div>
-<p>Alternatively, you can create an <code class="highlighter-rouge">ALIAS</code> or <code class="highlighter-rouge">ANAME</code> to your <code class="highlighter-rouge">[name].github.io</code> domain.</p>
+<p>Alternatively, you can create an <code class="language-plaintext highlighter-rouge">ALIAS</code> or <code class="language-plaintext highlighter-rouge">ANAME</code> to your <code class="language-plaintext highlighter-rouge">[name].github.io</code> domain.</p>
 
 <p>Refer to your domain registrar’s documentation on how to do this.</p>
 
 <p>And this takes us to the meat of this post. Having configured the entries above, typing the apex domain’s address in your browser’s address bar will redirect the browser with a 301 Moved Permanently status code to the Github Pages custom subdomain. Github pages will automatically handle this.</p>
 
 <p>Caveats:
-As mentioned, Github will generate a certificate only for the domain explicitly specified in the repo’s settings. You’ll get a warning if you try to connect to <code class="highlighter-rouge">https://example.com</code>. So, what happens when go to <code class="highlighter-rouge">example.com</code> is that you connect to Github Pages unsecurely and then Github Pages redirects the browser to the <code class="highlighter-rouge">www</code> domain. The initial connection before the redirect uses HTTPand thus it’s vulnerable to man-in-the-middle attacks.</p>
+As mentioned, Github will generate a certificate only for the domain explicitly specified in the repo’s settings. You’ll get a warning if you try to connect to <code class="language-plaintext highlighter-rouge">https://example.com</code>. So, what happens when go to <code class="language-plaintext highlighter-rouge">example.com</code> is that you connect to Github Pages unsecurely and then Github Pages redirects the browser to the <code class="language-plaintext highlighter-rouge">www</code> domain. The initial connection before the redirect uses HTTPand thus it’s vulnerable to man-in-the-middle attacks.</p>
 
 <p><a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">HSTS</a> is not currently supported although Github is aware that there is a growing interest in it.</p>
 
 <p>I guess you can’t complain, really. It’s all free, after all, save the price of the domain.</p>
 
-<p><strong>Update</strong>: Latest Chrome will, in fact, skip an unsecure connection to the unsecure <code class="highlighter-rouge">example.com</code> and will connect to the HTTPS <code class="highlighter-rouge">www.example.com</code> specified in the Github Pages project.</p>
+<p><strong>Update</strong>: Latest Chrome will, in fact, skip an unsecure connection to the unsecure <code class="language-plaintext highlighter-rouge">example.com</code> and will connect to the HTTPS <code class="language-plaintext highlighter-rouge">www.example.com</code> specified in the Github Pages project.</p>
 
   </article>
   
@@ -174,6 +176,8 @@ As mentioned, Github will generate a certificate only for the domain explicitly 
   <div class="col-box-title">Newest Posts</div>
   <ul class="post-list">
     
+      <li><a class="post-link" href="/blog/2022/10/01/newrelic-agent-apline-docker-container/">Installing the NewRelic .NET agent on an Alpine Docker image</a></li>
+    
       <li><a class="post-link" href="/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/">An implementation of the Capital Controls kata in Python</a></li>
     
       <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
@@ -181,8 +185,6 @@ As mentioned, Github will generate a certificate only for the domain explicitly 
       <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
     
       <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
-    
-      <li><a class="post-link" href="/blog/2018/04/09/Jekyll-blog-posts-structure/">Jekyll blog posts in their own sub URL</a></li>
     
   </ul>
 </div>
@@ -200,7 +202,7 @@ As mentioned, Github will generate a certificate only for the domain explicitly 
 
     <footer class="footer">
 <div class="wrapper">
-&copy; 2020 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+&copy; 2022 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
 </div>
 </footer>
 

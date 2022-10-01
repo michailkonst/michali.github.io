@@ -6,9 +6,24 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Jun 2020 08:17:50 +1000</pubDate>
-    <lastBuildDate>Sat, 13 Jun 2020 08:17:50 +1000</lastBuildDate>
-    <generator>Jekyll v4.0.1</generator>
+    <pubDate>Sat, 01 Oct 2022 10:01:30 +1000</pubDate>
+    <lastBuildDate>Sat, 01 Oct 2022 10:01:30 +1000</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Installing the NewRelic .NET agent on an Alpine Docker image</title>
+        <description>&lt;p&gt;Alpine is a small Linux distribution, commonly used in containers like Docker due to its size.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 01 Oct 2022 08:00:00 +1000</pubDate>
+        <link>http://www.michalikons.com/blog/2022/10/01/newrelic-agent-apline-docker-container/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2022/10/01/newrelic-agent-apline-docker-container/</guid>
+        
+        <category>Docker</category>
+        
+        <category>NewRelic</category>
+        
+        
+      </item>
     
       <item>
         <title>An implementation of the Capital Controls kata in Python</title>
