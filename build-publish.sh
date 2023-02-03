@@ -8,6 +8,11 @@ exit
 fi
 
 bundle exec jekyll build
+if [ $? -ne 0 ] ; then
+    echo "Error when building the site. Exiting."
+    exit 1
+fi
+
 echo "Site built"
 
 cp -r _site/. ../michali.github.io/
