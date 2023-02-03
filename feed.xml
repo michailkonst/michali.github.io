@@ -4,10 +4,10 @@
     <title>Michali K</title>
     <description>Software Development
 </description>
-    <link>http://www.michalikons.com/</link>
-    <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Oct 2022 21:40:53 +1100</pubDate>
-    <lastBuildDate>Tue, 25 Oct 2022 21:40:53 +1100</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 25 Oct 2022 21:45:05 +1100</pubDate>
+    <lastBuildDate>Tue, 25 Oct 2022 21:45:05 +1100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -15,8 +15,8 @@
         <description>&lt;p&gt;Alpine is a small Linux distribution, commonly used in containers like Docker due to its size.&lt;/p&gt;
 </description>
         <pubDate>Sat, 01 Oct 2022 08:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2022/10/01/newrelic-agent-apline-docker-container/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2022/10/01/newrelic-agent-apline-docker-container/</guid>
+        <link>http://localhost:4000/blog/2022/10/01/newrelic-agent-apline-docker-container/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2022/10/01/newrelic-agent-apline-docker-container/</guid>
         
         <category>Docker</category>
         
@@ -29,8 +29,8 @@
         <title>An implementation of the Capital Controls kata in Python</title>
         <description>A walkthrough of the Capital Controls Kata in Python. Train of thought and a retrospective.</description>
         <pubDate>Tue, 09 Jun 2020 08:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/</guid>
+        <link>http://localhost:4000/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/</guid>
         
         <category>Kata</category>
         
@@ -43,8 +43,8 @@
         <title>Trigger validation of a dropdown box when tabbing over it in KnockoutJS</title>
         <description>When tabbing over a dropdown box in a form, it's tougher to trigger its validations than it is with empty text boxes. Here's a trick on how to enable that.</description>
         <pubDate>Tue, 05 May 2020 08:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/</guid>
+        <link>http://localhost:4000/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/</guid>
         
         <category>KnockoutJS</category>
         
@@ -55,8 +55,8 @@
         <title>The Capital Controls Kata</title>
         <description>A code kata to explore adaptation in changing system requirements.</description>
         <pubDate>Sat, 02 May 2020 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2020/05/02/capital-controls-programming-kata/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2020/05/02/capital-controls-programming-kata/</guid>
+        <link>http://localhost:4000/blog/2020/05/02/capital-controls-programming-kata/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/05/02/capital-controls-programming-kata/</guid>
         
         <category>Kata</category>
         
@@ -70,8 +70,8 @@
         <description>&lt;p&gt;Back in 2018 Github began to offer free dedicated certificates on Github Pages. This was achieved by teaming up with Let’s Encrypt, a certificate authority that provides free SSL/TLS certificates. Before that, if you wanted to serve your site through HTTPS you had to use a service like Cloudflare, point your domain to its name servers and enable HTTPS through its interface. &lt;/p&gt;
 </description>
         <pubDate>Thu, 30 Apr 2020 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2020/04/30/Github-https-certificates-subdomain/</guid>
+        <link>http://localhost:4000/blog/2020/04/30/Github-https-certificates-subdomain/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/04/30/Github-https-certificates-subdomain/</guid>
         
         <category>HTTPS</category>
         
@@ -88,8 +88,8 @@
         <title>Jekyll blog posts in their own sub URL</title>
         <description>When rolling out a new blog, you can put all blog posts under their own sub URL.</description>
         <pubDate>Mon, 09 Apr 2018 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2018/04/09/Jekyll-blog-posts-structure/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2018/04/09/Jekyll-blog-posts-structure/</guid>
+        <link>http://localhost:4000/blog/2018/04/09/Jekyll-blog-posts-structure/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2018/04/09/Jekyll-blog-posts-structure/</guid>
         
         
         <category>Jekyll</category>
@@ -100,8 +100,8 @@
         <title>Parallel.Foreach with ordered output using arrays</title>
         <description>One of the problems I've recently had was to process a collection of data and return the outcome of each processing in another collection. To utilise the multiple and/or hyper threaded cores of the machine that executes the processing, I've used the Task Parallel Library.</description>
         <pubDate>Fri, 01 Aug 2014 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</guid>
+        <link>http://localhost:4000/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</guid>
         
         
         <category>Task Parallel Library</category>
@@ -113,8 +113,8 @@
         <description>&lt;p&gt;Umbraco 6.1.0 has introduced support for the ASP .NET Web API. We’ll see what kind of support is currently offered, its shortcomings and how we can improve it.&lt;/p&gt;
 </description>
         <pubDate>Thu, 28 Nov 2013 20:00:13 +1100</pubDate>
-        <link>http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</guid>
+        <link>http://localhost:4000/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</guid>
         
         
         <category>clean code</category>
@@ -128,8 +128,8 @@
         <description>&lt;p&gt;This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option.&lt;/p&gt;
 </description>
         <pubDate>Thu, 28 Nov 2013 00:00:00 +1100</pubDate>
-        <link>http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/</guid>
+        <link>http://localhost:4000/blog/2013/11/28/nunit-test-method-code-snippet/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2013/11/28/nunit-test-method-code-snippet/</guid>
         
         
         <category>Automated Tests</category>
