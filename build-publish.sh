@@ -1,25 +1,31 @@
 #!/bin/sh
+set -e
+
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+
+if [ $# -eq 0 ]; then
+    echo "${RED}Please enter a commit message for the Github Pages site.${NC}"
+    exit 1
+fi
+
 SC_CHANGES=`git status --porcelain`
 length=${#SC_CHANGES} 
 
 if [ $length -gt 0 ]; then
-echo "There are changes in the working directory. Please commit those changes and rerun the script."
-exit
+    echo "${RED}There are changes in the working directory. Please commit those changes and rerun the script.${NC}"
+    exit 1
 fi
 
 bundle exec jekyll build
-if [ $? -ne 0 ] ; then
-    echo "Error when building the site. Exiting."
-    exit 1
-fi
 
 echo "Site built"
 
 cp -r _site/. ../michali.github.io/
-MESSAGE=`git log -1 --pretty=%B`
 
 git -C ../michali.github.io add -A
-git -C ../michali.github.io commit -m "$MESSAGE"
+git -C ../michali.github.io commit -m "$1"
 git -C ../michali.github.io push
 
-echo "Pushed to Github pages"
+echo "${GREEN}Pushed to Github pages${NC}"
