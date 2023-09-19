@@ -6,9 +6,24 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Sep 2023 00:43:06 +1000</pubDate>
-    <lastBuildDate>Tue, 05 Sep 2023 00:43:06 +1000</lastBuildDate>
+    <pubDate>Tue, 19 Sep 2023 18:46:48 +1000</pubDate>
+    <lastBuildDate>Tue, 19 Sep 2023 18:46:48 +1000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Writing a Novel with Visual Studio Code</title>
+        <description>&lt;p&gt;If you’re a software developer who also loves to indulge in novel writing, you might be intrigued to discover that you don’t necessarily need a specialised writing tool. Visual Studio Code, the versatile code editor, can prove to be a surprisingly effective ally in your creative writing endeavours. Let’s delve into how Visual Studio Code can enhance your novel-writing experience.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Sep 2023 08:00:00 +1000</pubDate>
+        <link>http://www.michalikons.com/blog/2023/09/19/writing-a-novel-with-visual-studio-code/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2023/09/19/writing-a-novel-with-visual-studio-code/</guid>
+        
+        <category>Novels</category>
+        
+        <category>Visual Studio Code</category>
+        
+        
+      </item>
     
       <item>
         <title>Installing the NewRelic .NET agent on an Alpine Docker image</title>
