@@ -2,30 +2,38 @@
 <html>
 
   <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXV6CVG7XQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BXV6CVG7XQ');
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Installing the NewRelic .NET agent on an Alpine Docker image | Michali K</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Installing the NewRelic .NET agent on an Alpine Docker image" />
 <meta name="author" content="Michali K" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Alpine is a small Linux distribution, commonly used in containers like Docker due to its size." />
 <meta property="og:description" content="Alpine is a small Linux distribution, commonly used in containers like Docker due to its size." />
-<link rel="canonical" href="http://www.michalikons.com/blog/2022/09/28/newrelic-agent-apline-docker-container/" />
-<meta property="og:url" content="http://www.michalikons.com/blog/2022/09/28/newrelic-agent-apline-docker-container/" />
+<link rel="canonical" href="http://www.michalikons.com/blog/2022/09/30/newrelic-agent-apline-docker-container/" />
+<meta property="og:url" content="http://www.michalikons.com/blog/2022/09/30/newrelic-agent-apline-docker-container/" />
 <meta property="og:site_name" content="Michali K" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-09-28T08:00:00+10:00" />
+<meta property="article:published_time" content="2022-09-30T22:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Installing the NewRelic .NET agent on an Alpine Docker image" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michali K"},"dateModified":"2022-09-28T08:00:00+10:00","datePublished":"2022-09-28T08:00:00+10:00","description":"Alpine is a small Linux distribution, commonly used in containers like Docker due to its size.","headline":"Installing the NewRelic .NET agent on an Alpine Docker image","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2022/09/28/newrelic-agent-apline-docker-container/"},"url":"http://www.michalikons.com/blog/2022/09/28/newrelic-agent-apline-docker-container/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michali K"},"dateModified":"2022-09-30T22:00:00+00:00","datePublished":"2022-09-30T22:00:00+00:00","description":"Alpine is a small Linux distribution, commonly used in containers like Docker due to its size.","headline":"Installing the NewRelic .NET agent on an Alpine Docker image","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2022/09/30/newrelic-agent-apline-docker-container/"},"url":"http://www.michalikons.com/blog/2022/09/30/newrelic-agent-apline-docker-container/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.michalikons.com/blog/2022/09/28/newrelic-agent-apline-docker-container/">
+  <link rel="canonical" href="http://www.michalikons.com/blog/2022/09/30/newrelic-agent-apline-docker-container/">
   <link rel="alternate" type="application/rss+xml" title="Michali K" href="http://www.michalikons.com/feed.xml" />
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
@@ -96,7 +104,7 @@
 
   <header class="post-header">
     <h1 class="post-title">Installing the NewRelic .NET agent on an Alpine Docker image</h1>
-    <p class="post-meta">Sep 28, 2022</p>
+    <p class="post-meta">Sep 30, 2022</p>
   </header>
 
   <article class="post-content">
@@ -152,7 +160,6 @@ NEW_RELIC_APP_NAME=YOUR_APP_NAME
 
 
 
-
 </div>
 
         </div>
@@ -160,13 +167,11 @@ NEW_RELIC_APP_NAME=YOUR_APP_NAME
           <div class="col-box col-box-author">
   <img class="avatar" src="/assets/profile.jpg" alt="Michali K">
   <div class="col-box-title name">Michali K</div>
-  <p>A software engineer based in Sydney</p>
+  <p>Software Developer</p>
   <p class="contact">
     
     <a href="https://github.com/michali">GitHub</a>
     
-    
-    <a href="https://twitter.com/michalikons">Twitter</a>
     
     
     <a href="mailto:michali@michalikons.com">Email</a>
@@ -178,15 +183,15 @@ NEW_RELIC_APP_NAME=YOUR_APP_NAME
   <div class="col-box-title">Newest Posts</div>
   <ul class="post-list">
     
-      <li><a class="post-link" href="/blog/2022/09/28/newrelic-agent-apline-docker-container/">Installing the NewRelic .NET agent on an Alpine Docker image</a></li>
+      <li><a class="post-link" href="/blog/2023/09/18/writing-a-novel-with-visual-studio-code/">Writing a Novel with Visual Studio Code</a></li>
     
-      <li><a class="post-link" href="/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/">An implementation of the Capital Controls kata in Python</a></li>
+      <li><a class="post-link" href="/blog/2022/09/30/newrelic-agent-apline-docker-container/">Installing the NewRelic .NET agent on an Alpine Docker image</a></li>
     
-      <li><a class="post-link" href="/blog/2020/05/05/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
+      <li><a class="post-link" href="/blog/2020/06/08/an-implenentation-of-the-capital-controls-kata-in-python/">An implementation of the Capital Controls kata in Python</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/05/04/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
     
       <li><a class="post-link" href="/blog/2020/05/02/capital-controls-programming-kata/">The Capital Controls Kata</a></li>
-    
-      <li><a class="post-link" href="/blog/2020/04/30/Github-https-certificates-subdomain/">Github Pages  offers HTTPS for one custom domain. However you can point more than one domain to your pages (with caveats).</a></li>
     
   </ul>
 </div>
@@ -204,21 +209,11 @@ NEW_RELIC_APP_NAME=YOUR_APP_NAME
 
     <footer class="footer">
 <div class="wrapper">
-&copy; 2022 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+&copy; 2023 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
 </div>
 </footer>
 
 <script src="/js/easybook.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117119957-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-117119957-1');
-</script>
-
 
   </body>
 
