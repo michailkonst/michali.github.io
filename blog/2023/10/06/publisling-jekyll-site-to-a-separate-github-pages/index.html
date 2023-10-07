@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXV6CVG7XQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BXV6CVG7XQ');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Publishing a Jekyll site to a separate Github Pages repository using Github Actions | Michali K</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Publishing a Jekyll site to a separate Github Pages repository using Github Actions" />
+<meta name="author" content="Michali K" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In the realm of static site generators, Jekyll stands tall as a popular choice among content creators and developers alike. Its simplicity and flexibility make it an ideal tool for crafting stunning websites and blogs (or not-so-stunning ones, like this one). If you’re using Jekyll to power your website and want to streamline the deployment process to GitHub Pages, you’re in the right place. In this post, we’ll guide you through the steps to publish your Jekyll site to a separate GitHub Pages repository using GitHub Actions." />
+<meta property="og:description" content="In the realm of static site generators, Jekyll stands tall as a popular choice among content creators and developers alike. Its simplicity and flexibility make it an ideal tool for crafting stunning websites and blogs (or not-so-stunning ones, like this one). If you’re using Jekyll to power your website and want to streamline the deployment process to GitHub Pages, you’re in the right place. In this post, we’ll guide you through the steps to publish your Jekyll site to a separate GitHub Pages repository using GitHub Actions." />
+<link rel="canonical" href="http://www.michalikons.com/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/" />
+<meta property="og:url" content="http://www.michalikons.com/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/" />
+<meta property="og:site_name" content="Michali K" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-06T22:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Publishing a Jekyll site to a separate Github Pages repository using Github Actions" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michali K"},"dateModified":"2023-10-06T22:00:00+00:00","datePublished":"2023-10-06T22:00:00+00:00","description":"In the realm of static site generators, Jekyll stands tall as a popular choice among content creators and developers alike. Its simplicity and flexibility make it an ideal tool for crafting stunning websites and blogs (or not-so-stunning ones, like this one). If you’re using Jekyll to power your website and want to streamline the deployment process to GitHub Pages, you’re in the right place. In this post, we’ll guide you through the steps to publish your Jekyll site to a separate GitHub Pages repository using GitHub Actions.","headline":"Publishing a Jekyll site to a separate Github Pages repository using Github Actions","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/"},"url":"http://www.michalikons.com/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.michalikons.com/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/">
+  <link rel="alternate" type="application/rss+xml" title="Michali K" href="http://www.michalikons.com/feed.xml" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#237afc"
+      },
+      "button": {
+        "background": "#fff",
+        "text": "#237afc"
+      }
+    },
+    "content": {
+      "dismiss": "Okay"
+    }
+  })});
+  </script>
+  
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2865828466412302",
+        enable_page_level_ads: true
+      });
+    </script>
+  
+</head>
+
+
+  <body>
+
+    <header class="header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Michali K</a>
+    <nav class="site-nav">
+      
+        <a class="page-link" href="/blog/">Blog</a>
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </nav>
+  </div>
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="col-main">
+          <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Publishing a Jekyll site to a separate Github Pages repository using Github Actions</h1>
+    <p class="post-meta">Oct 6, 2023</p>
+  </header>
+
+  <article class="post-content">
+    <p>In the realm of static site generators, Jekyll stands tall as a popular choice among content creators and developers alike. Its simplicity and flexibility make it an ideal tool for crafting stunning websites and blogs (or not-so-stunning ones, like this one). If you’re using Jekyll to power your website and want to streamline the deployment process to GitHub Pages, you’re in the right place. In this post, we’ll guide you through the steps to publish your Jekyll site to a separate GitHub Pages repository using GitHub Actions.</p>
+
+<h2 id="why-separate-repositories">Why Separate Repositories?</h2>
+
+<p>Before we dive into the technical details, you might wonder why you’d want to publish your Jekyll site to a different repository than to a <code class="language-plaintext highlighter-rouge">gh-pages</code> branch in your site’s source code.</p>
+
+<p><strong>Isolation:</strong> Keeping your source code and published site in separate repositories helps maintain a cleaner project structure. It reduces the clutter in your source repository and isolates your published site for easier management.</p>
+
+<p><strong>Security:</strong> By separating your source code from your published site, you minimize the risk of accidentally exposing sensitive information or configuration details in your public repository. Remember, your GitHub Pages site needs to be a public GitHub repository. You can, however, keep your Jekyll source files in a different, private repository.</p>
+
+<h2 id="steps-to-deploy-your-jekyll-site">Steps to Deploy Your Jekyll Site</h2>
+<p>Now, let’s get into the nitty-gritty of deploying your Jekyll site to a separate GitHub Pages repository using GitHub Actions. Here’s a step-by-step guide:</p>
+
+<p><strong>Step 1: Create a New Repository for Your GitHub Pages Site</strong></p>
+
+<p>Start by creating a new <a href="https://pages.github.com/">GitHub repository</a> (typically called <code class="language-plaintext highlighter-rouge">&lt;your username&gt;.github.io</code>) dedicated to your GitHub Pages site. This will serve as the target repository where your Jekyll-generated HTML files will be deployed.</p>
+
+<p><strong>Step 2: Configure GitHub Actions Workflow</strong></p>
+
+<p>In your source code repository (the one containing your Jekyll project), you’ll need to set up a GitHub Actions workflow. Create a .github/workflows directory in your source code repository and add a YAML file (e.g., deploy.yml) to define your workflow.</p>
+
+<p>Here’s an example workflow configuration:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Build and Publish Jekyll Site</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">master</span> <span class="c1"># Change this to your master branch's name</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout Code</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set Up Ruby</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">ruby/setup-ruby@v1</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">ruby-version</span><span class="pi">:</span> <span class="s">3.1.2</span> <span class="c1"># Adjust as needed</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install Dependencies</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">gem install bundler</span>
+          <span class="s">bundle install</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build Jekyll Site</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">bundle exec jekyll build</span>
+     
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy Site</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">external_repository</span><span class="pi">:</span> <span class="s">&lt;your username&gt;/&lt;your github pages repo&gt;</span>
+          <span class="na">deploy_key</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">publish_branch</span><span class="pi">:</span> <span class="s">master</span> <span class="c1"># Change this to your master branch's name</span>
+          <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span> <span class="c1"># change to the output dir of your Jekyll build</span>
+</code></pre></div></div>
+
+<p>This workflow checks out your source code, sets up the required Ruby environment, builds your Jekyll site, and deploys it to your GitHub Pages repository.</p>
+
+<p><strong>Step 3: Create and Use a Deploy Key</strong></p>
+
+<p>To securely deploy your site to the GitHub Pages repository, you can create and use a deploy key or a personal access token. The above example uses the property for a deploy key.</p>
+
+<p>Here’s how to create and use a deploy key:</p>
+
+<ul>
+  <li>On your local machine, open a terminal.</li>
+  <li>Use the following command to generate an SSH key pair. Replace <your-key-name> with a descriptive name for your key.</your-key-name></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f &lt;your key name&gt; -N ""
+</code></pre></div></div>
+<ul>
+  <li>You’ll get two files, one with a .pub extension (a public key) and one with no extension (a private key).</li>
+  <li>Go to your Github Pages repository and add the public key there and tick “Allow write access”</li>
+  <li>Go to the Secrets of your Jekyll source repository and add your private key as <code class="language-plaintext highlighter-rouge">DEPLOY_KEY</code>(or give it another name, but that needs to be reflected in the Action YAML.)</li>
+</ul>
+
+<p>Note: Deploy keys are typically not protected by a passphrase for automation purposes, as they are used in automated workflows where manual intervention to enter a passphrase isn’t desired. However, it’s crucial to take steps to secure your deploy key by reducing the attack surface, which is easier to do if you’re the sole contributor to your repository and you’re pushing to your GitHub Pages site from one single location. And if you suspect any security breach, rotate the key.</p>
+
+<p><strong>Step 4: Commit and Push Changes</strong></p>
+
+<p>Commit the changes to your source code repository and push them to your master branch (or the branch you specified in the workflow configuration). This will trigger the GitHub Actions workflow.</p>
+
+<p><strong>Step 5: Monitor the Deployment</strong></p>
+
+<p>Go to the “Actions” tab in your source code repository on GitHub to monitor the progress of your workflow. Once it’s complete, your Jekyll site will be deployed to your GitHub Pages repository.</p>
+
+<p><strong>Step 6: Access Your Published Site</strong></p>
+
+<p>Visit https://username.github.io/ in your web browser to access your published Jekyll site, where username is your GitHub username.</p>
+
+<p>By following these steps, you’ve successfully set up an automated deployment pipeline for your Jekyll site to a separate GitHub Pages repository. This approach not only keeps your source code clean but also ensures that your website is always up-to-date with the latest changes, every time you push to GitHub.</p>
+
+  </article>
+  
+  
+
+<div class="post-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'michalikons'; // required: replace example with your forum shortname
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+
+
+
+</div>
+
+        </div>
+        <div class="col-second">
+          <div class="col-box col-box-author">
+  <img class="avatar" src="/assets/profile.jpg" alt="Michali K">
+  <div class="col-box-title name">Michali K</div>
+  <p>Software Developer</p>
+  <p class="contact">
+    
+    <a href="https://github.com/michali">GitHub</a>
+    
+    
+    
+    <a href="mailto:michali@michalikons.com">Email</a>
+    
+  </p>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title">Newest Posts</div>
+  <ul class="post-list">
+    
+      <li><a class="post-link" href="/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/">Publishing a Jekyll site to a separate Github Pages repository using Github Actions</a></li>
+    
+      <li><a class="post-link" href="/blog/2023/09/18/writing-a-novel-with-visual-studio-code/">Writing a Novel with Visual Studio Code</a></li>
+    
+      <li><a class="post-link" href="/blog/2022/09/30/newrelic-agent-apline-docker-container/">Installing the NewRelic .NET agent on an Alpine Docker image</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/06/08/an-implenentation-of-the-capital-controls-kata-in-python/">An implementation of the Capital Controls kata in Python</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/05/04/tab-out-validate-dropdowns-knockoutjs/">Trigger validation of a dropdown box when tabbing over it in KnockoutJS</a></li>
+    
+  </ul>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title"><a href="/blog/archive/">Archive</a></div>
+</div>
+
+<div class="col-box post-toc hide">
+  <div class="col-box-title">TOC</div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+<div class="wrapper">
+&copy; 2023 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+</div>
+</footer>
+
+<script src="/js/easybook.js"></script>
+
+  </body>
+
+</html>

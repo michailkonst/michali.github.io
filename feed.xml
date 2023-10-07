@@ -6,9 +6,20 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 06 Oct 2023 12:15:06 +0000</pubDate>
-    <lastBuildDate>Fri, 06 Oct 2023 12:15:06 +0000</lastBuildDate>
+    <pubDate>Sat, 07 Oct 2023 12:03:52 +0000</pubDate>
+    <lastBuildDate>Sat, 07 Oct 2023 12:03:52 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Publishing a Jekyll site to a separate Github Pages repository using Github Actions</title>
+        <description>&lt;p&gt;In the realm of static site generators, Jekyll stands tall as a popular choice among content creators and developers alike. Its simplicity and flexibility make it an ideal tool for crafting stunning websites and blogs (or not-so-stunning ones, like this one). If you’re using Jekyll to power your website and want to streamline the deployment process to GitHub Pages, you’re in the right place. In this post, we’ll guide you through the steps to publish your Jekyll site to a separate GitHub Pages repository using GitHub Actions.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 06 Oct 2023 22:00:00 +0000</pubDate>
+        <link>http://www.michalikons.com/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2023/10/06/publisling-jekyll-site-to-a-separate-github-pages/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Writing a Novel with Visual Studio Code</title>
@@ -135,21 +146,6 @@
         <category>clean code</category>
         
         <category>rest</category>
-        
-      </item>
-    
-      <item>
-        <title>NUnit Test method code snippet</title>
-        <description>&lt;p&gt;This is if you don’t use Resharper. Suffices to say Resharper’s Live templates are much easier to create and update but Visual Studio code snippets are an alternative option.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 28 Nov 2013 00:00:00 +0000</pubDate>
-        <link>http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2013/11/28/nunit-test-method-code-snippet/</guid>
-        
-        
-        <category>Automated Tests</category>
-        
-        <category>Visual Studio</category>
         
       </item>
     
