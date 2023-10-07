@@ -166,7 +166,7 @@
         <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
         <span class="na">with</span><span class="pi">:</span>
           <span class="na">external_repository</span><span class="pi">:</span> <span class="s">&lt;your username&gt;/&lt;your github pages repo&gt;</span>
-          <span class="na">deploy_key</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">deploy_key</span><span class="pi">:</span> <span class="s">${{ secrets.DEPLOY_KEY }}</span>
           <span class="na">publish_branch</span><span class="pi">:</span> <span class="s">master</span> <span class="c1"># Change this to your master branch's name</span>
           <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span> <span class="c1"># change to the output dir of your Jekyll build</span>
 </code></pre></div></div>
