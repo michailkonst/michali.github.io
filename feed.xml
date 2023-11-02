@@ -6,9 +6,20 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Oct 2023 14:52:39 +1100</pubDate>
-    <lastBuildDate>Sun, 08 Oct 2023 14:52:39 +1100</lastBuildDate>
+    <pubDate>Thu, 02 Nov 2023 19:23:12 +1100</pubDate>
+    <lastBuildDate>Thu, 02 Nov 2023 19:23:12 +1100</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Preserve the commit history when moving files across Git repositories</title>
+        <description>&lt;h1 id=&quot;preserve-the-commit-history-when-moving-files-across-git-repositories&quot;&gt;Preserve the commit history when moving files across Git repositories&lt;/h1&gt;
+</description>
+        <pubDate>Thu, 02 Nov 2023 09:00:00 +1100</pubDate>
+        <link>http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Publishing a Jekyll site to a separate Github Pages repository using Github Actions</title>
@@ -131,21 +142,6 @@
         
         
         <category>Task Parallel Library</category>
-        
-      </item>
-    
-      <item>
-        <title>Umbraco 6 and ASP.NET Web API</title>
-        <description>&lt;p&gt;Umbraco 6.1.0 has introduced support for the ASP .NET Web API. We’ll see what kind of support is currently offered, its shortcomings and how we can improve it.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 28 Nov 2013 20:00:13 +1100</pubDate>
-        <link>http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2013/11/28/Umbraco-6-and-ASP-NET-Web-API/</guid>
-        
-        
-        <category>clean code</category>
-        
-        <category>rest</category>
         
       </item>
     

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXV6CVG7XQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BXV6CVG7XQ');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Preserve the commit history when moving files across Git repositories | Michali K</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Preserve the commit history when moving files across Git repositories" />
+<meta name="author" content="Michali K" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Preserve the commit history when moving files across Git repositories" />
+<meta property="og:description" content="Preserve the commit history when moving files across Git repositories" />
+<link rel="canonical" href="http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/" />
+<meta property="og:url" content="http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/" />
+<meta property="og:site_name" content="Michali K" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-02T09:00:00+11:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Preserve the commit history when moving files across Git repositories" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michali K"},"dateModified":"2023-11-02T09:00:00+11:00","datePublished":"2023-11-02T09:00:00+11:00","description":"Preserve the commit history when moving files across Git repositories","headline":"Preserve the commit history when moving files across Git repositories","mainEntityOfPage":{"@type":"WebPage","@id":"http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/"},"url":"http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/">
+  <link rel="alternate" type="application/rss+xml" title="Michali K" href="http://www.michalikons.com/feed.xml" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#237afc"
+      },
+      "button": {
+        "background": "#fff",
+        "text": "#237afc"
+      }
+    },
+    "content": {
+      "dismiss": "Okay"
+    }
+  })});
+  </script>
+  
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2865828466412302",
+        enable_page_level_ads: true
+      });
+    </script>
+  
+</head>
+
+
+  <body>
+
+    <header class="header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Michali K</a>
+    <nav class="site-nav">
+      
+        <a class="page-link" href="/blog/">Blog</a>
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </nav>
+  </div>
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="col-main">
+          <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Preserve the commit history when moving files across Git repositories</h1>
+    <p class="post-meta">Nov 2, 2023</p>
+  </header>
+
+  <article class="post-content">
+    <h1 id="preserve-the-commit-history-when-moving-files-across-git-repositories">Preserve the commit history when moving files across Git repositories</h1>
+
+<p>When managing projects in Git, there may come a time when you need to transfer specific files or directories, along with their entire history, from one repository to another. This can be a useful process when reorganizing your codebase, separating concerns, or simply consolidating repositories. In this blog post, we’ll explore a step-by-step guide to achieve this task seamlessly.</p>
+
+<h2 id="step-1-clone-or-copy-the-source-repository">Step 1: Clone or Copy the Source Repository</h2>
+
+<p>Start by accessing your source repository — the one containing the files and history you want to move. You can either clone it from your remote origin or copy your local repository if you already have it on your system. You want a copy separate from your working local repository, as we’ll be doing some history rewriting.</p>
+
+<h2 id="step-2-remove-the-origin-remote">Step 2: Remove the Origin Remote</h2>
+
+<p>To prevent any accidental pushes to the original repository, remove the remote origin by running the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nb">rm </span>origin
+</code></pre></div></div>
+
+<p>This step ensures that you won’t inadvertently propagate any history rewriting to the original repository.</p>
+
+<h2 id="step-3-keep-the-history-of-only-the-files-and-folders-you-want-to-move-across">Step 3: Keep the history of only the files and folders you want to move across</h2>
+<p>Now, you’re ready to filter and preserve the history of the specific folder or directories you want to move. Use the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch <span class="nt">--subdirectory-filter</span> &lt;folder-to-move&gt; <span class="nt">--</span> <span class="nt">--all</span>
+</code></pre></div></div>
+
+<p>If there is no commit history of those files in the branch you are currently in, the command may abort with a “Found nothing to rewrite” message. In such cases, you can use the following command, which is also handy when you have multiple paths to preserve:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch <span class="nt">--index-filter</span> <span class="s1">'git rm --cached -qr --ignore-unmatch -- . &amp;&amp; git reset -q $GIT_COMMIT -- path/to/dir1 path/to/dir2'</span> <span class="nt">--prune-empty</span> <span class="nt">--</span> <span class="nt">--all</span>
+</code></pre></div></div>
+
+<p>This command filters the repository’s history to keep only the files and directories you specified.</p>
+
+<h2 id="step-4-clean-up">Step 4: Clean Up</h2>
+<p>After filtering, clean up any remaining artifacts from the history rewrite:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset <span class="nt">--hard</span>
+git gc <span class="nt">--aggressive</span>
+git prune
+git clean <span class="nt">-fd</span>
+</code></pre></div></div>
+
+<p>These commands ensure that your repository is in a clean state following the history modification.</p>
+
+<h2 id="step-5-add-a-local-remote-to-the-source-repository">Step 5: Add a Local Remote to the Source Repository</h2>
+<p>Now, switch to your target repository—the one where you want to move the files and history. Add a local remote pointing to the source repository you cloned or copied earlier. Replace <source /> with a meaningful name and ../<sourcedir> with the relative path to the source repository:</sourcedir></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add &lt;<span class="nb">source</span><span class="o">&gt;</span> ../&lt;sourcedir&gt;
+</code></pre></div></div>
+
+<h2 id="step-6-pull-files-and-history-from-the-source">Step 6: Pull Files and History from the Source</h2>
+<p>Use the following command to pull the files and history from the source repository into your target repository, using the remote name you specified:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull &lt;<span class="nb">source</span><span class="o">&gt;</span> &lt;branch you want to pull from&gt; <span class="nt">--allow-unrelated-histories</span>
+</code></pre></div></div>
+
+<p>This command merges the source repository’s history into your target repository, preserving both histories.</p>
+
+<h2 id="step-7-remove-the-local-remote">Step 7: Remove the Local Remote</h2>
+<p>After the merge is successful, you can remove the local remote pointing to the source repository:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nb">rm</span> &lt;<span class="nb">source</span><span class="o">&gt;</span>
+</code></pre></div></div>
+<h2 id="step-8-commit-and-push">Step 8: Commit and Push</h2>
+
+<p>Finally, commit the changes to your target repository with a descriptive message:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Moved folders from other repository"</span>
+</code></pre></div></div>
+<p>Push the changes to update your remote repository:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
+</code></pre></div></div>
+
+<p>Now, you can delete those files and folders from your source repository.</p>
+
+<p>You’ve successfully moved files and their entire history from one Git repository to another. This process allows you to maintain a clean and organized codebase while preserving valuable historical data.</p>
+
+  </article>
+  
+  
+
+<div class="post-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'michalikons'; // required: replace example with your forum shortname
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+
+
+
+</div>
+
+        </div>
+        <div class="col-second">
+          <div class="col-box col-box-author">
+  <img class="avatar" src="/assets/profile.jpg" alt="Michali K">
+  <div class="col-box-title name">Michali K</div>
+  <p>Software Developer</p>
+  <p class="contact">
+    
+    <a href="https://github.com/michali">GitHub</a>
+    
+    
+    
+    <a href="mailto:michali@michalikons.com">Email</a>
+    
+  </p>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title">Newest Posts</div>
+  <ul class="post-list">
+    
+      <li><a class="post-link" href="/blog/2023/11/02/moving-files-between-git-repositories-history/">Preserve the commit history when moving files across Git repositories</a></li>
+    
+      <li><a class="post-link" href="/blog/2023/10/07/publisling-jekyll-site-to-a-separate-github-pages/">Publishing a Jekyll site to a separate Github Pages repository using Github Actions</a></li>
+    
+      <li><a class="post-link" href="/blog/2023/09/19/writing-a-novel-with-visual-studio-code/">Writing a Novel with Visual Studio Code</a></li>
+    
+      <li><a class="post-link" href="/blog/2022/10/01/newrelic-agent-apline-docker-container/">Installing the NewRelic .NET agent on an Alpine Docker image</a></li>
+    
+      <li><a class="post-link" href="/blog/2020/06/09/an-implenentation-of-the-capital-controls-kata-in-python/">An implementation of the Capital Controls kata in Python</a></li>
+    
+  </ul>
+</div>
+
+<div class="col-box">
+  <div class="col-box-title"><a href="/blog/archive/">Archive</a></div>
+</div>
+
+<div class="col-box post-toc hide">
+  <div class="col-box-title">TOC</div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+<div class="wrapper">
+&copy; 2023 Michali K - Powered by <a href="https://jekyllrb.com"/>Jekyll</a> - <a href="/privacy-policy"/>Privacy Policy</a> - <a href="https://github.com/laobubu/jekyll-theme-EasyBook/">EasyBook theme by @laobubu</a>
+</div>
+</footer>
+
+<script src="/js/easybook.js"></script>
+
+  </body>
+
+</html>
