@@ -128,14 +128,14 @@
 <p>This step ensures that you won’t inadvertently propagate any history rewriting to the original repository.</p>
 
 <h2 id="step-3-keep-the-history-of-only-the-files-and-folders-you-want-to-move-across">Step 3: Keep the history of only the files and folders you want to move across</h2>
-<p>Now, you’re ready to filter and preserve the history of the specific folder or directories you want to move. Use the following command:</p>
+<p>Now, you’re ready to filter and preserve the history of the specific file or directory you want to move. Use the following command:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch <span class="nt">--subdirectory-filter</span> &lt;folder-to-move&gt; <span class="nt">--</span> <span class="nt">--all</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch <span class="nt">--subdirectory-filter</span> path/to/dir-or-file <span class="nt">--</span> <span class="nt">--all</span>
 </code></pre></div></div>
 
 <p>If there is no commit history of those files in the branch you are currently in, the command may abort with a “Found nothing to rewrite” message. In such cases, you can use the following command, which is also handy when you have multiple paths to preserve:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch <span class="nt">--index-filter</span> <span class="s1">'git rm --cached -qr --ignore-unmatch -- . &amp;&amp; git reset -q $GIT_COMMIT -- path/to/dir1 path/to/dir2'</span> <span class="nt">--prune-empty</span> <span class="nt">--</span> <span class="nt">--all</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch <span class="nt">--index-filter</span> <span class="s1">'git rm --cached -qr --ignore-unmatch -- . &amp;&amp; git reset -q $GIT_COMMIT -- path/to/dir1 path/to/dir-or-file-2'</span> <span class="nt">--prune-empty</span> <span class="nt">--</span> <span class="nt">--all</span>
 </code></pre></div></div>
 
 <p>This command filters the repository’s history to keep only the files and directories you specified.</p>
