@@ -6,9 +6,20 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Nov 2023 21:26:04 +1100</pubDate>
-    <lastBuildDate>Thu, 02 Nov 2023 21:26:04 +1100</lastBuildDate>
+    <pubDate>Sat, 24 Aug 2024 23:10:14 +1000</pubDate>
+    <lastBuildDate>Sat, 24 Aug 2024 23:10:14 +1000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Automate All The Things: A Manifesto for Building Better Teams</title>
+        <description>&lt;p&gt;Years ago, I was guilty of a common sin in our trade: handing over a comprehensive document to a colleague and saying “There, mate, go ahead and do all that. See ya when you’re done.” At the time, it seemed like the right approach—I had documented everything meticulously, hadn’t I? But over the years, I realised that this wasn’t just inefficient; it was downright disrespectful. We wouldn’t dream of putting our clients through this. I cringe when I think about it now, knowing how much time and frustration could have been saved.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 24 Aug 2024 00:00:00 +1000</pubDate>
+        <link>http://www.michalikons.com/blog/2024/08/24/automate-all-the-things-a-manifesto-for-building-better-teams/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2024/08/24/automate-all-the-things-a-manifesto-for-building-better-teams/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Preserve commit history when moving files across Git repositories</title>
@@ -130,18 +141,6 @@
         
         
         <category>Jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>Parallel.Foreach with ordered output using arrays</title>
-        <description>One of the problems I&apos;ve recently had was to process a collection of data and return the outcome of each processing in another collection. To utilise the multiple and/or hyper threaded cores of the machine that executes the processing, I&apos;ve used the Task Parallel Library.</description>
-        <pubDate>Fri, 01 Aug 2014 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2014/08/01/parallel-foreach-with-ordered-output-using-arrays/</guid>
-        
-        
-        <category>Task Parallel Library</category>
         
       </item>
     
