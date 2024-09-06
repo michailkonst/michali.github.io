@@ -22,7 +22,7 @@ file_path="./_posts/${date}-${slug}.md"
 echo "---" > "$file_path"
 echo "layout: post" >> "$file_path"
 echo "title: \"$title\"" >> "$file_path"
-echo "date: ${date} 08:00+1000" >> "$file_path"
+echo "date: ${date}" >> "$file_path"
 echo "tags:" >> "$file_path"
 echo "---" >> "$file_path"
 
