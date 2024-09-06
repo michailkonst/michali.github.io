@@ -6,20 +6,9 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 Sep 2024 09:44:20 +1000</pubDate>
-    <lastBuildDate>Sat, 07 Sep 2024 09:44:20 +1000</lastBuildDate>
+    <pubDate>Sat, 07 Sep 2024 09:46:36 +1000</pubDate>
+    <lastBuildDate>Sat, 07 Sep 2024 09:46:36 +1000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
-    
-      <item>
-        <title>Safe Storage of App Secrets in Python Development</title>
-        <description>&lt;p&gt;When developing software, one of the most critical aspects of securing your application is managing sensitive data like API keys, database credentials, and other secrets. In Python, handling these secrets can sometimes be tricky, especially during development, where ease of use can often lead to risky practices like storing sensitive data in source control.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 07 Sep 2024 00:00:00 +1000</pubDate>
-        <link>http://www.michalikons.com/blog/2024/09/07/safe-storage-of-app-secrets-in-python-development/</link>
-        <guid isPermaLink="true">http://www.michalikons.com/blog/2024/09/07/safe-storage-of-app-secrets-in-python-development/</guid>
-        
-        
-      </item>
     
       <item>
         <title>Automate All The Things: A Manifesto for Building Better Teams</title>
@@ -140,6 +129,18 @@
         <category>Github</category>
         
         <category>HTTPS</category>
+        
+      </item>
+    
+      <item>
+        <title>Jekyll blog posts in their own sub URL</title>
+        <description>When rolling out a new blog, you can put all blog posts under their own sub URL.</description>
+        <pubDate>Mon, 09 Apr 2018 00:00:00 +1000</pubDate>
+        <link>http://www.michalikons.com/blog/2018/04/09/Jekyll-blog-posts-structure/</link>
+        <guid isPermaLink="true">http://www.michalikons.com/blog/2018/04/09/Jekyll-blog-posts-structure/</guid>
+        
+        
+        <category>Jekyll</category>
         
       </item>
     
