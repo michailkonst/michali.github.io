@@ -18,15 +18,46 @@ else
     date=$(date +'%Y-%m-%d')
 fi
 
+# Function to count words in the title
+count_words() {
+    echo "$1" | wc -w
+}
+
+# Activate virtual environment if needed
+activate_venv() {
+    VENV_PATH="./sluggen/bin/activate"
+    if [ -f "$VENV_PATH" ]; then
+        echo "Activating virtual environment..."
+        # Source the venv to activate it
+        . "$VENV_PATH"
+    else
+        echo "Virtual environment not found. Please set the correct path."
+        exit 1
+    fi
+}
+
 if [ $# -ge 3 ]; then
     slug="$3"
 else
-    slug=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -d "&’'")
-    slug=$(echo "$slug" | cut -d '-' -f1-7)
+    # If the title has more than 6 words, use the NLP slug generator
+    word_count=$(count_words "$title")
+    if [ "$word_count" -gt 6 ]; then
+        activate_venv  
+        slug=$(python3 generate_slug.py "$title")
+    else
+        # Otherwise, generate the slug using simple transformation
+        slug=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -d "&’'")
+        slug=$(echo "$slug" | cut -d '-' -f1-7)
+    fi
 fi
+
+echo "slug generated: $slug"
 
 # Define the file path
 file_path="./_posts/${date}-${slug}.md"
+
+# Call the external awk file to capitalise the title
+title=$(echo "$title" | awk -f capitalise_title.awk)
 
 # Create the Markdown file with the specified content
 echo "---" > "$file_path"
