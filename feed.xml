@@ -6,14 +6,13 @@
 </description>
     <link>http://www.michalikons.com/</link>
     <atom:link href="http://www.michalikons.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Sep 2024 22:25:18 +1000</pubDate>
-    <lastBuildDate>Thu, 19 Sep 2024 22:25:18 +1000</lastBuildDate>
+    <pubDate>Tue, 24 Sep 2024 19:59:20 +1000</pubDate>
+    <lastBuildDate>Tue, 24 Sep 2024 19:59:20 +1000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
         <title>Now Generating URL Slugs With Natural Language Processing!</title>
-        <description>&lt;p&gt;As content creators, we’re always looking for ways to optimise our workflow and automate the tedious aspects of web development. One such task is creating URL slugs. We all know the importance of a clean, readable slug for SEO and user experience, but what happens when you’re drafting a post with a title as long as a railroad track?&lt;/p&gt;
-</description>
+        <description>Learn how to generate clean, SEO-friendly URL slugs using spaCy&apos;s natural language processing capabilities in this detailed guide.</description>
         <pubDate>Thu, 19 Sep 2024 00:00:00 +1000</pubDate>
         <link>http://www.michalikons.com/blog/2024/09/19/now-generating-url-slugs-natural-language-processing/</link>
         <guid isPermaLink="true">http://www.michalikons.com/blog/2024/09/19/now-generating-url-slugs-natural-language-processing/</guid>
@@ -23,8 +22,7 @@
     
       <item>
         <title>Safe Storage of App Secrets in Python Development</title>
-        <description>&lt;p&gt;When developing software, one of the most critical aspects of securing your application is managing sensitive data like API keys, database credentials, and other secrets. In Python, handling these secrets can sometimes be tricky, especially during development, where ease of use can often lead to risky practices like storing sensitive data in source control.&lt;/p&gt;
-</description>
+        <description>Discover an effective method for securely storing and managing sensitive app secrets in Python development.</description>
         <pubDate>Sat, 07 Sep 2024 00:00:00 +1000</pubDate>
         <link>http://www.michalikons.com/blog/2024/09/07/safe-storage-of-app-secrets-in-python-development/</link>
         <guid isPermaLink="true">http://www.michalikons.com/blog/2024/09/07/safe-storage-of-app-secrets-in-python-development/</guid>
@@ -34,8 +32,7 @@
     
       <item>
         <title>Automate All The Things: A Manifesto for Building Better Teams</title>
-        <description>&lt;p&gt;Years ago, I was guilty of a common sin in our trade: handing over a comprehensive document to a colleague and saying “There, mate, go ahead and do all that. See ya when you’re done.” At the time, it seemed like the right approach—I had documented everything meticulously, hadn’t I? But over the years, I realised that this wasn’t just inefficient; it was downright disrespectful. We wouldn’t dream of putting our clients through this. I cringe when I think about it now, knowing how much time and frustration could have been saved.&lt;/p&gt;
-</description>
+        <description>Explore how automation can transform team dynamics, boost productivity, and foster innovation. This manifesto outlines the benefits of automating repetitive tasks to free up creative energy and improve collaboration across teams.</description>
         <pubDate>Sat, 24 Aug 2024 00:00:00 +1000</pubDate>
         <link>http://www.michalikons.com/blog/2024/08/24/automate-all-the-things-a-manifesto-for-building-better-teams/</link>
         <guid isPermaLink="true">http://www.michalikons.com/blog/2024/08/24/automate-all-the-things-a-manifesto-for-building-better-teams/</guid>
@@ -45,8 +42,7 @@
     
       <item>
         <title>Preserve commit history when moving files across Git repositories</title>
-        <description>&lt;p&gt;When managing projects in Git, there may come a time when you need to transfer specific files or directories, along with their entire history, from one repository to another. This can be a useful process when reorganizing your codebase, separating concerns, or simply consolidating repositories. In this blog post, we’ll explore a step-by-step guide to achieve this task seamlessly.&lt;/p&gt;
-</description>
+        <description>Learn how to preserve your commit history when moving files between Git repositories, ensuring that valuable project history and context are retained during the transfer process.</description>
         <pubDate>Thu, 02 Nov 2023 09:00:00 +1100</pubDate>
         <link>http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/</link>
         <guid isPermaLink="true">http://www.michalikons.com/blog/2023/11/02/moving-files-between-git-repositories-history/</guid>
@@ -56,8 +52,7 @@
     
       <item>
         <title>Publishing a Jekyll site to a separate Github Pages repository using Github Actions</title>
-        <description>&lt;p&gt;In the realm of static site generators, Jekyll stands tall as a popular choice among content creators and developers alike. Its simplicity and flexibility make it an ideal tool for crafting stunning websites and blogs (or not-so-stunning ones, like this one). If you’re using Jekyll to power your website and want to streamline the deployment process to GitHub Pages, you’re in the right place. In this post, we’ll guide you through the steps to publish your Jekyll site to a separate GitHub Pages repository using GitHub Actions.&lt;/p&gt;
-</description>
+        <description>Learn how to automate the deployment of your Jekyll site to a separate GitHub Pages repository using GitHub Actions, streamlining your workflow and ensuring seamless updates.</description>
         <pubDate>Sat, 07 Oct 2023 09:00:00 +1100</pubDate>
         <link>http://www.michalikons.com/blog/2023/10/07/publisling-jekyll-site-to-a-separate-github-pages/</link>
         <guid isPermaLink="true">http://www.michalikons.com/blog/2023/10/07/publisling-jekyll-site-to-a-separate-github-pages/</guid>
@@ -67,8 +62,7 @@
     
       <item>
         <title>Writing a Novel with Visual Studio Code</title>
-        <description>&lt;p&gt;If you’re a software developer who also loves to indulge in novel writing, you might be intrigued to discover that you don’t necessarily need a specialised writing tool. Visual Studio Code, the versatile code editor, can prove to be a surprisingly effective ally in your creative writing endeavours. Let’s delve into how Visual Studio Code can enhance your novel-writing experience.&lt;/p&gt;
-</description>
+        <description>Discover how to use Visual Studio Code as a powerful tool for writing and organising your novel, with tips to enhance your creative writing process.</description>
         <pubDate>Tue, 19 Sep 2023 08:00:00 +1000</pubDate>
         <link>http://www.michalikons.com/blog/2023/09/19/writing-a-novel-with-visual-studio-code/</link>
         <guid isPermaLink="true">http://www.michalikons.com/blog/2023/09/19/writing-a-novel-with-visual-studio-code/</guid>
@@ -82,8 +76,7 @@
     
       <item>
         <title>Installing the NewRelic .NET agent on an Alpine Docker image</title>
-        <description>&lt;p&gt;Alpine is a small Linux distribution, commonly used in containers like Docker due to its size.&lt;/p&gt;
-</description>
+        <description>Learn how to install the New Relic .NET agent on an Alpine-based Docker image, with step-by-step instructions for monitoring your .NET applications in a lightweight container environment.</description>
         <pubDate>Sat, 01 Oct 2022 08:00:00 +1000</pubDate>
         <link>http://www.michalikons.com/blog/2022/10/01/newrelic-agent-apline-docker-container/</link>
         <guid isPermaLink="true">http://www.michalikons.com/blog/2022/10/01/newrelic-agent-apline-docker-container/</guid>
